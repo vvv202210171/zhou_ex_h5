@@ -1,0 +1,61 @@
+$mainColor: var(--mainColor);
+$subColor: var(--subColor);
+$blockColor: var(--blockColor);
+$subBlockColor: var(--subBlockColor);
+$bgColor: var(--bgColor);
+$fontColor: var(--fontColor );
+$subFontColor: var(--subFontColor);
+$placeholderColor: var(--placeholderColor);
+$redColor: #FF4D4F;
+$greenColor: #04B800;
+$btnColor: var(--btnColor);
+$lineColor: var(--lineColor);
+$footerFontColor: var(--footerFontColor);
+
+:root {
+    --mainColor: #0052FF;
+    --subColor: #FF962D;
+    --blockColor: #ffffff;
+    --subBlockColor: #eee;
+    --bgColor: #ffffff;    
+    --fontColor: #000000;
+    --subFontColor: #666666;
+    --placeholderColor: #575D66; 
+    --btnColor: #0052FF;
+    --lineColor: #8d8d8d;
+    --list-border-color:#f6f6f6;
+    --input-border-color: #666666;
+    --footerFontColor: #666666;
+    --top-searchBox-bgColor: #F0F0F1;
+    --home-coinBox-bgColor: #F5F6FA;
+    --home-subBanner-bgColor:#EBF1FF;       
+    --van-swipe-color :#D9D9D9;
+    --van-swipe-activeColor: #0052FF;
+    --mainIndex-balanceMenu-bgColor: #ffffff;
+    --mainIndex-balanceMenu-color: #191C24;
+    --main-box-bgColor: rgba(0, 0, 0, .03);
+}
+
+.dark {
+    --mainColor: #F0B90A;
+    --subColor: #FF962D;
+    --blockColor: #1F2331;
+    --subBlockColor: #272D42;
+    --bgColor: #191C24;
+    --fontColor: #D5DFED;
+    --subFontColor: #848E9C;
+    --placeholderColor: #575D66;   
+    --btnColor: #F0B90A;
+    --lineColor: #2F364C;
+    --list-border-color:#2F364C;
+    --input-border-color: #2f364c;
+    --footerFontColor: #666666;
+    --top-searchBox-bgColor: #1F2331;
+    --home-coinBox-bgColor: #1F2331;
+    --home-subBanner-bgColor:#1F2331;
+    --van-swipe-color: #D9D9D9;
+    --van-swipe-activeColor: #ffffff;
+    --mainIndex-balanceMenu-bgColor: rgba(255,255,255,0.15);
+    --mainIndex-balanceMenu-color: #191C24;
+    --main-box-bgColor: #1F2331;
+}

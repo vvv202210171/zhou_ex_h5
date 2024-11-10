@@ -1,0 +1,15 @@
+export default {
+  lang1: "OK",
+  lang2:"No",
+  lang3: "Do you want to download a new installation package?",
+  lang4:"Downloading",
+  lang5: "Failed to download update package",
+  lang6:"Please reopen the app after installation!",
+  lang7: "Failed to update resource",
+  lang8:"There is currently no network service, please check the network connection!",
+  lang9: "Press again to exit the program",
+  lang10:"APP version update",
+  lang11: "1. Optimized the user experience; 2. Fixed some known issues.",
+  lang12:"Update now",
+  lang13: "Failed to download the installation package!",
+}

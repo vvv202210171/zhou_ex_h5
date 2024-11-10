@@ -1,0 +1,95 @@
+.van-swipe__indicator--active {
+  background-color: var(--van-swipe-activeColor)!important;
+}
+.van-swipe__indicator {
+  background-color: var(--van-swipe-color);
+  width: 10px;
+  height: 3px;
+  border-radius: 35%;
+}
+
+.van-nav-bar{
+  .van-nav-bar__title{
+    max-width: 100%;
+    width: 100%;
+    margin-left: 54px;
+    text-align: left;
+  }
+}
+
+.van-index-anchor{
+  color: $subFontColor;
+  font-size: 12px;
+}
+.van-pull-refresh{
+  min-height: 100%;
+  display: flex;
+  .van-pull-refresh__track{
+    flex: 1;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+.van-pull-refresh__head{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.crop-point{
+  background-color: $mainColor !important;
+}
+.cropper-view-box{
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid $mainColor !important;
+  outline-color: rgba($mainColor, 0.75) !important;
+  user-select: none;
+}
+
+.release_box{
+  .van-stepper__minus--disabled, .van-stepper__plus--disabled, .van-stepper__plus{
+    background-color: $blockColor;
+  }
+  .van-stepper__minus, .van-stepper__plus{
+    background-color: $blockColor;
+  }
+  .van-stepper__minus::after, .van-stepper__minus::before, .van-stepper__plus::after, .van-stepper__plus::before{
+    background-color: $fontColor;
+  }
+  .van-stepper__minus--disabled, .van-stepper__plus--disabled{
+    opacity: .2;
+  }
+  .van-stepper__input{
+    flex: 1;
+    height: 36px!important;
+    background-color: $blockColor;
+    color: $fontColor;
+  }
+}
+.van-dialog__message{
+  color: $fontColor;
+}
+.van-action-sheet__cancel:active, .van-action-sheet__item:active{
+  background-color: $subBlockColor;
+}
+.van-tabs{
+  .van-hairline--top-bottom{
+    &::after{
+      border-top-width: 0;
+    }
+  }
+}
+/* 设置组件的主题颜色 */
+$themeColor: $mainColor;
+/* 导入主题样式 */
+@import '~vue-slider-component/lib/theme/default.scss';
+.vue-slider-dot-handle{
+  background-color: $fontColor;
+}
+.vue-slider-marks{
+  background-color: $subBlockColor;
+}

@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-height: 999999px; //避免 Font Boosting 被触发
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: auto;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+*:not(input,textarea), *:before:not(input,textarea), *:after:not(input,textarea) {
+  -webkit-touch-callout:none;  
+  -webkit-user-select:none;  
+  -khtml-user-select:none;  
+  -moz-user-select:none;  
+  -ms-user-select:none;  
+  user-select:none;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  line-height: 1;
+  background-color: $bgColor;
+  color: $fontColor;
+  overflow: hidden;
+}
+.main_content{
+  position: absolute;
+  width: 100%;
+  top: 46px;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: $bgColor;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+i,
+em {
+  font-style: normal
+}
+
+a {
+  word-wrap: break-word;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: initial;
+}
+
+h2,h3,h4{
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  caret-color:$mainColor;
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.main_color {
+  color: $mainColor!important;
+}
+
+.sub_color {
+  color: $subColor!important;
+}
+
+.font_color {
+  color: $fontColor!important;
+}
+
+.red_color {
+  color: $redColor!important;
+}
+.green_color {
+  color: $greenColor!important;
+}
+.red_bg {
+  background-color: $redColor!important;
+}
+.green_bg {
+  background-color: $greenColor!important;
+}
+.red_transparent {
+  color: $redColor!important;
+  background-color: rgba($redColor, 0.15)!important;
+}
+.green_transparent {
+  color: $greenColor!important;
+  background-color: rgba($greenColor, 0.15)!important;
+}
+
+.main_bg{
+  background-color: $bgColor !important;
+}
+.block_bg{
+  background-color: var(--main-box-bgColor) !important;
+}
+
+
+.text_hide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text_hide_two {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box!important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.input_focus {
+  border-color: rgba($mainColor,.5) !important;
+}
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+  color: $placeholderColor;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+  /*隐藏滚轮*/
+}
+
+.no_data {
+  margin: 0 auto;
+  padding: 10vh 0;
+  text-align: center;
+  .icon_no_data {
+    background: url('../img/common/no_data.png') no-repeat;
+    background-size: auto 100%;
+    display: block;
+    height: 20vh;
+    background-position-x: center;
+    margin-bottom: 15px;
+  }
+  span {
+    color: $subFontColor;
+  }
+}
+
+.right_popup{
+  width: 100%;
+  height: 100%;
+}
+
+.model_popup{
+  background-color: $blockColor;
+  border-radius: 16px 16px 0 0;
+  .model_popup_top{
+    padding: 16px;
+    text-align: center;
+    font-size: 0;
+    i{
+      width: 58px;
+      height: 4px;
+      background: rgba(218, 220, 225, .7);
+      border-radius: 3px;
+      display: inline-block;
+    }
+  }
+  .model_popup_btn{
+    margin-top: 20px;
+    .van-button{
+      flex: 1;
+      border-radius: 30px;
+      line-height: 44px;
+      height: 44px;
+      border: none;
+      &:last-child{
+        background: $mainColor;
+        color: $bgColor;
+        margin-left: 25px;
+      }
+      &:first-child{
+        background-color: $subBlockColor;
+        color: $subFontColor;
+        margin: 0;
+      }
+    }
+  }
+}
+.pay_popup{
+  margin: 150px 30px 20px;
+}
+.keyboard_box{
+  height: 360px;
+  padding-top: 20px;
+}
+.sub_font{
+  font-size: 12px;
+  color: $subFontColor;
+}
+.red_point{
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: $redColor;
+  border-radius: 100%;
+  top: 5px;
+  right: 2px;
+  z-index: 10;
+}
+
+
