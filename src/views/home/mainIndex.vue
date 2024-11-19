@@ -93,7 +93,7 @@
           <img v-if="$i18n.locale=='JP'" src="@img/home/invite_banner_jp.png" alt="">
           <img v-if="$i18n.locale=='KO'" src="@img/home/invite_banner_ko.png" alt="">
         </div> -->
-        <div class="sub_banner" @click="pushPath('/lockMining')">
+        <div class="sub_banner" @click="pushPath('/ability')">
           <h3>{{ $t("homeLang.lang32") }}</h3>
           <p>{{ $t("homeLang.lang33") }}</p>
         </div>
