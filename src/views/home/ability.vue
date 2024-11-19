@@ -8,17 +8,18 @@
     <div class="main_content">
       <div class="lock_top">
         <p>{{ $t("homeLang.lang48") }}(USDT)</p>
-        <h2>{{ nodeInfo.totalPayNumber || "0.00" }}</h2>
+        <h2>
+          {{ nodeInfo.releaseAbility || "0.00"
+          }}<span style="color: green; font-size: 14px; margin-left: 5px"
+            >兑现</span
+          >
+        </h2>
         <ol class="flex">
           <li>
             <h4>
               {{ nodeInfo.nodeAbility + nodeInfo.shareAbility || "0.00" }}
             </h4>
             <p>总算力</p>
-          </li>
-          <li>
-            <h4>{{ nodeInfo.releaseAbility || "0.00" }}</h4>
-            <p>已释放算力</p>
           </li>
           <li>
             <h4>{{ nodeInfo.nodeAbility || "0" }}</h4>
