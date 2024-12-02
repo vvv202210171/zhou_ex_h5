@@ -17,17 +17,10 @@ export default [
     component: () => import("@/views/home/notice"),
     meta: { level: 3 },
   },
-
   {
     path: "/lockMining",
     name: "lockMining",
     component: () => import("@/views/home/lockMining"),
-    meta: { level: 2, requiresAuth: true },
-  },
-  {
-    path: "/ability",
-    name: "ability",
-    component: () => import("@/views/home/ability"),
     meta: { level: 2, requiresAuth: true },
   },
   {
@@ -36,22 +29,11 @@ export default [
     component: () => import("@/views/home/comfirmLock"),
     meta: { level: 3, requiresAuth: true },
   },
-  {
-    path: "/comfirmNode",
-    name: "comfirmNode",
-    component: () => import("@/views/home/comfirmNode"),
-    meta: { level: 3, requiresAuth: true },
-  },
+
   {
     path: "/lockRecord",
     name: "lockRecord",
     component: () => import("@/views/home/lockRecord"),
-    meta: { level: 4, requiresAuth: true },
-  },
-  {
-    path: "/nodeRecord",
-    name: "nodeRecord",
-    component: () => import("@/views/home/nodeRecord"),
     meta: { level: 4, requiresAuth: true },
   },
   {

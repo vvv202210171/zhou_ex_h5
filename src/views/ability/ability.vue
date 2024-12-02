@@ -7,12 +7,13 @@
     </nav-header>
     <div class="main_content">
       <div class="lock_top">
-        <p>{{ $t("homeLang.lang48") }}(USDT)</p>
-        <h2>
+        <p>已释放算力</p>
+        <h2 >
           {{ nodeInfo.releaseAbility || "0.00"
-          }}<span style="color: green; font-size: 14px; margin-left: 5px"
+          }}<span style="color: green; font-size: 14px; margin-left: 5px" @click="withDrawAbility"
             >兑现</span
           >
+          <i class="iconfont icon-arrow-right main_color"  @click="pushPath('/withdrawRecord')" style="float: right;"/>
         </h2>
         <ol class="flex">
           <li>
@@ -79,7 +80,6 @@
 import { mapState } from "vuex";
 import { nodes } from "@api/node";
 import { Notify } from "vant";
-import { nodeInfo } from "../../service/api/node";
 export default {
   data() {
     return {
@@ -108,6 +108,9 @@ export default {
     },
     isDisable(data) {
       return data.state === "disable";
+    },
+    withDrawAbility(){
+      this.pushPath('/withdrawAbility')
     },
     goConfirm(data) {
       if (this.isDisable(data)) {

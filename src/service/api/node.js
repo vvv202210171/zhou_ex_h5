@@ -20,7 +20,10 @@ export const addNodeOrder = (data) => {
 export const nodeOrder = (data) => {
   return fetch(`${baseURL}/node/orders`, data);
 };
-export const redeemOrder = (data) => {
+export const bbaiWithdraw = (data) => {
   showLoading();
-  return post(`${baseURL}/miner/redeemOrder`, data);
+  return post(`${baseURL}/node/withdraw`, data);
+};
+export const withdrawLog = () => {
+  return fetch(`${baseURL}/node/withdraw_record`);
 };
