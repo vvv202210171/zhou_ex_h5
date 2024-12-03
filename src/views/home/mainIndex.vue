@@ -9,47 +9,93 @@
           <img src="@img/home/icon_search.png" alt="" />
           <span class="text_hide">{{ $t("homeLang.lang31") }}</span>
         </div>
-        <a
-          @click="showOnlineService()"
-          v-show="serviceUrl.KF_ADDRESS_H5 !== ''"
-        >
+        <a @click="showOnlineService()" v-show="serviceUrl.KF_ADDRESS_H5 !== ''">
           <img src="@img/home/icon_service.png" alt="" />
         </a>
       </div>
     </div>
     <div class="main_content quotation_details">
       <div ref="homeBox">
-        <van-swipe :autoplay="5000" :duration="1000" class="banner_box">
+        <!-- <van-swipe :autoplay="5000" :duration="1000" class="banner_box">
           <van-swipe-item v-for="(image, index) in bannerList" :key="index">
             <div class="banner_img">
               <img :src="getBannerImgUrl(image.banner)" />
             </div>
           </van-swipe-item>
-        </van-swipe>
+        </van-swipe> -->
 
+        <div class="bg-top">
+          <div class="bg-top1">
+            <div class="bg-top-left">
+              <h2>
+                <p>欢迎来到</p>
+                <p>BBAI</p>
+              </h2>
+              <p>
+              <h3>陪你探索无限未来</h3>
+              <span>安全&nbsp;/&nbsp;便捷&nbsp;/&nbsp;创新&nbsp;/&nbsp;未来</span>
+              </p>
+            </div>
+            <div class="flex">
+              <img :src="require('../../assets/img/bbai/Frame.png').default" alt="" width="125" height="125" />
+            </div>
+          </div>
+          <div style="margin-top: 20px;" v-if="!isLogin">
+            <van-button type="danger" size="large" round hairline @click="pushPath('login')">
+              登陆/注册</van-button>
+          </div>
+          <div>
+            <ul style="margin-top: 20px;" v-if="isLogin" class="flex ul ">
+              <li class="userinfo" @click="pushPath('coinRecharge')">
+                <img :src="require('../../assets/img/bbai/in.png').default" alt="" width="50" height="50" />
+                <span>充值</span>
+              </li>
+              <li class="userinfo" @click="pushPath('coinWithdraw')">
+                <img :src="require('../../assets/img/bbai/out.png').default" alt="" width="50" height="50" />
+                <span>提现</span>
+              </li>
+              <li class="userinfo" @click="pushPath('inviteFriends')">
+                <img :src="require('../../assets/img/bbai/share.png').default" alt="" width="50" height="50" />
+                <span>分享好友</span>
+              </li>
+              <li class="userinfo" @click="pushPath('securityCenter')">
+                <img :src="require('../../assets/img/bbai/security.png').default" alt="" width="50" height="50" />
+                <span>安全中心</span>
+              </li>
+            </ul>
+
+          </div>
+          <div style="margin-top: 20px;" class="lock flex">
+            <div class="lock-left" @click="pushPath('ability')">
+              <div>
+                <h3>BBAI全新上线</h3>
+                <span style="color: red;">100USDT</span>
+              </div>
+              <img :src="require('../../assets/img/bbai/image7.png').default" alt="" width="125" height="125" />
+            </div>
+            <div class="lock-right">
+              <div class="lock-right-top" @click="pushPath('lockMining')">
+                <h3>挖矿中心</h3>
+                <van-image fit="cover" :src="require('../../assets/img/bbai/image8.png').default" height="125px" />
+              </div>
+              <div class="lock-right-bt">
+
+                <p class="lock-right-bt-text">
+                  <span>理财</span>
+                  <em>闲钱中心</em>
+                </p>
+                <van-image fit="cover" :src="require('../../assets/img/bbai/image9.png').default"
+                  class="lock-right-bt-img" />
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="home_notice">
-          <label
-            ><img src="@img/home/icon_notice.png" alt="" srcset=""
-          /></label>
+          <label><img src="@img/home/icon_notice.png" alt="" srcset="" /></label>
           <div class="notice_box">
-            <van-swipe
-              :autoplay="5000"
-              :duration="1000"
-              :show-indicators="false"
-              vertical
-              style="height: 0.8rem"
-            >
-              <van-swipe-item
-                v-for="item in noticeList"
-                :key="item.id"
-                style="height: 0.8rem"
-              >
-                <span
-                  style="height: 0.8rem"
-                  class="text_hide"
-                  @click="showNoticePopup(item)"
-                  >{{ item.title }}</span
-                >
+            <van-swipe :autoplay="5000" :duration="1000" :show-indicators="false" vertical style="height: 0.8rem">
+              <van-swipe-item v-for="item in noticeList" :key="item.id" style="height: 0.8rem">
+                <span style="height: 0.8rem" class="text_hide" @click="showNoticePopup(item)">{{ item.title }}</span>
               </van-swipe-item>
             </van-swipe>
           </div>
@@ -57,32 +103,21 @@
         </div>
 
         <ol class="coin_box">
-          <li
-            v-for="item in overviewList"
-            :key="item.tradcoin"
-            @click="goDetails(item)"
-          >
+          <li v-for="item in overviewList" :key="item.tradcoin" @click="goDetails(item)">
             <div class="box_item">
               <p>{{ item.tradcoin }}/{{ item.maincoin }}</p>
-              <h2
-                :class="[
-                  item.rise >= 0 ? 'green_color' : 'red_color',
-                  'text_hide',
-                ]"
-              >
+              <h2 :class="[
+                item.rise >= 0 ? 'green_color' : 'red_color',
+                'text_hide',
+              ]">
                 {{ item.price }}
               </h2>
-              <i
-                :class="[
-                  item.rise >= 0 ? 'green_color' : 'red_color',
-                  'text_hide',
-                ]"
-                ><em v-if="item.rise > 0">+</em>{{ item.rise }}%</i
-              >
-              <span class="text_hide"
-                >≈{{ rateData.symbol
-                }}{{ (item.price * rateData.price) | mathFloor(2) }}</span
-              >
+              <i :class="[
+                item.rise >= 0 ? 'green_color' : 'red_color',
+                'text_hide',
+              ]"><em v-if="item.rise > 0">+</em>{{ item.rise }}%</i>
+              <span class="text_hide">≈{{ rateData.symbol
+                }}{{ (item.price * rateData.price) | mathFloor(2) }}</span>
             </div>
           </li>
         </ol>
@@ -101,32 +136,17 @@
 
       <div class="coin_list">
         <ol class="area_box">
-          <li
-            :class="[{ font_active: areaType == 'amount' }, 'tab_default']"
-            @click="changeType('amount', 0)"
-          >
+          <li :class="[{ font_active: areaType == 'amount' }, 'tab_default']" @click="changeType('amount', 0)">
             {{ $t("homeLang.lang34") }}
           </li>
-          <li
-            :class="[{ font_active: areaType == 'rise' }, 'tab_default']"
-            @click="changeType('rise', 1)"
-          >
+          <li :class="[{ font_active: areaType == 'rise' }, 'tab_default']" @click="changeType('rise', 1)">
             {{ $t("homeLang.lang35") }}
           </li>
-          <li
-            :class="[{ font_active: areaType == 'fall' }, 'tab_default']"
-            @click="changeType('fall', 2)"
-          >
+          <li :class="[{ font_active: areaType == 'fall' }, 'tab_default']" @click="changeType('fall', 2)">
             {{ $t("homeLang.lang36") }}
           </li>
         </ol>
-        <van-swipe
-          class="listscroll"
-          ref="areaSwipe"
-          :show-indicators="false"
-          :loop="false"
-          @change="changeAreaType"
-        >
+        <van-swipe class="listscroll" ref="areaSwipe" :show-indicators="false" :loop="false" @change="changeAreaType">
           <van-swipe-item key="amount">
             <areaCoinList type="amount" :coin-list="volList" />
           </van-swipe-item>
@@ -140,13 +160,7 @@
       </div>
     </div>
 
-    <van-popup
-      v-model="noticePopup"
-      class="right_popup"
-      position="right"
-      close-on-popstate
-      overlay-class="block_bg"
-    >
+    <van-popup v-model="noticePopup" class="right_popup" position="right" close-on-popstate overlay-class="block_bg">
       <nav-header :title="$t('homeLang.lang30')" />
       <div class="main_content notice_details">
         <h3>{{ noticeData.title }}</h3>
@@ -197,6 +211,7 @@ export default {
       rateData: (state) => state.wallet.rateData,
       serviceUrl: (state) => state.common.getConfig,
       baseImgUrl: (state) => state.common.baseImgUrl,
+      isLogin: (state) => state.common.isLogin,
     }),
   },
   watch: {
@@ -313,6 +328,129 @@ export default {
 .home {
   bottom: 50px;
   height: auto;
+
+  .bg-top {
+    background-image: url("../../assets/img/bbai/bg_home_BBAI.png");
+    margin: 0px 10px 10px 10px;
+    padding: 10px 15px;
+
+    .ul {
+      justify-content: space-around;
+
+      .userinfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        span {
+          font-size: 12px;
+          color: $subFontColor;
+          margin-top: 6px;
+        }
+      }
+    }
+
+    .lock {
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 200px;
+
+      .lock-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border: 0.5px solid #ccc;
+        padding: 5px;
+        border-radius: 10px;
+        flex: 1;
+      }
+
+      .lock-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border-radius: 10px;
+        flex: 1;
+        margin-left: 10px;
+
+        .lock-right-top {
+          height: 60%;
+          border: 0.5px solid #ccc;
+          padding: 5px;
+          border-radius: 10px;
+          margin-bottom: 5px;
+        }
+
+        .lock-right-bt {
+          height: 40%;
+          border: 0.5px solid #ccc;
+          padding: 5px;
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          position: relative;
+
+          .lock-right-bt-img {
+            position: absolute;
+            right: 10px;
+            height: 60px;
+          }
+
+          .lock-right-bt-text {
+
+            font-size: 14px;
+            position: absolute;
+            bottom: 5px;
+            left: 8px;
+
+            em {
+              display: block;
+              font-size: 10px;
+              margin-top: 3px;
+              color: $subFontColor;
+            }
+          }
+        }
+      }
+    }
+
+
+    .bg-top1 {
+      justify-content: space-between;
+      display: flex;
+
+      .bg-top-left {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: space-between;
+
+        h2 {
+          margin-bottom: 30px;
+          font-size: 18px;
+
+          p {
+            margin-bottom: 10px
+          }
+
+          ;
+        }
+
+        h3 {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+
+        span {
+          font-size: 10px;
+          color: $subFontColor;
+        }
+      }
+    }
+  }
+
 }
 
 .home_top {

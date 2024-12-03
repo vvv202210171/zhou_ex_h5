@@ -33,12 +33,8 @@
             <p>{{ item.enddate | ts_local("yyyy-MM-dd") }}</p>
           </li>
           <li v-if="item.state == 'enable' && userInfo.minerState == 'enable'">
-            <van-button
-              type="primary"
-              size="large"
-              @click="showPayPopup(item)"
-              >{{ $t("commonLang.lang1") }}</van-button
-            >
+            <van-button type="primary" size="large" @click="showPayPopup(item)">{{ $t("commonLang.lang1")
+              }}</van-button>
           </li>
         </ol>
       </van-list>
@@ -49,11 +45,7 @@
     </div>
     <van-overlay :show="payPopup" @click="payPopup = false">
       <div class="pay_popup" @click.stop>
-        <passwordDialog
-          v-model="payPass"
-          @cancelAction="payPopup = false"
-          @confirmAction="confirmPass"
-        />
+        <passwordDialog v-model="payPass" @cancelAction="payPopup = false" @confirmAction="confirmPass" />
       </div>
     </van-overlay>
   </div>
@@ -62,7 +54,7 @@
 <script>
 import { mapState } from "vuex";
 import { Toast, Dialog } from "vant";
-import { nodeOrder, redeemOrder } from "@api/node";
+import { nodeOrder } from "@api/node";
 import passwordDialog from "@/components/passwordDialog.vue";
 export default {
   components: { passwordDialog },
@@ -126,17 +118,7 @@ export default {
           this.payPass = "";
           this.payPopup = true;
         })
-        .catch(() => {});
-    },
-
-    confirmPass() {
-      redeemOrder({
-        id: this.id,
-        tradPassword: this.payPass,
-      }).then((res) => {
-        Toast(res.msg);
-        this.getRecord();
-      });
+        .catch(() => { });
     },
   },
 };
@@ -147,17 +129,21 @@ export default {
   margin-bottom: 8px;
   padding: 0 15px 15px;
   background-color: $blockColor;
+
   li {
     line-height: 20px;
     margin-top: 12px;
+
     &:first-child {
       padding: 15px 0 12px;
       margin: 0;
       border-bottom: 1px solid $lineColor;
     }
+
     em {
       color: $subFontColor;
     }
+
     button {
       margin-top: 10px;
     }
