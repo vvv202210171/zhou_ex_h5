@@ -47,19 +47,19 @@
           <div>
             <ul style="margin-top: 20px;" v-if="isLogin" class="flex ul ">
               <li class="userinfo" @click="pushPath('coinRecharge')">
-                <img :src="require('../../assets/img/bbai/in.png').default" alt="" width="50" height="50" />
+                <img src="@img/bbai/in.png" alt="" width="50" height="50" />
                 <span>充值</span>
               </li>
               <li class="userinfo" @click="pushPath('coinWithdraw')">
-                <img :src="require('../../assets/img/bbai/out.png').default" alt="" width="50" height="50" />
+                <img src="@img/bbai/out.png" alt="" width="50" height="50" />
                 <span>提现</span>
               </li>
               <li class="userinfo" @click="pushPath('inviteFriends')">
-                <img :src="require('../../assets/img/bbai/share.png').default" alt="" width="50" height="50" />
+                <img src="@img/bbai/share.png" alt="" width="50" height="50" />
                 <span>分享好友</span>
               </li>
               <li class="userinfo" @click="pushPath('securityCenter')">
-                <img :src="require('../../assets/img/bbai/security.png').default" alt="" width="50" height="50" />
+                <img src="@img/bbai/security.png" alt="" width="50" height="50" />
                 <span>安全中心</span>
               </li>
             </ul>
@@ -128,10 +128,10 @@
           <img v-if="$i18n.locale=='JP'" src="@img/home/invite_banner_jp.png" alt="">
           <img v-if="$i18n.locale=='KO'" src="@img/home/invite_banner_ko.png" alt="">
         </div> -->
-        <div class="sub_banner" @click="pushPath('/ability')">
+        <!-- <div class="sub_banner" @click="pushPath('/ability')">
           <h3>{{ $t("homeLang.lang32") }}</h3>
           <p>{{ $t("homeLang.lang33") }}</p>
-        </div>
+        </div> -->
       </div>
 
       <div class="coin_list">
@@ -175,7 +175,6 @@
 import areaCoinList from "./components/areaCoinList.vue";
 import { mapState } from "vuex";
 import { tradeOverview, tradeSymbols } from "@api/exchange";
-import axios from "axios";
 export default {
   components: { areaCoinList },
   data() {
