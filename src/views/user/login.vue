@@ -5,7 +5,7 @@
         <p @click="goBack()">
           <img :src="require(`@img/common/${them}_close.png`)" alt="">
         </p>
-        <h3>OCX</h3>
+        <h3>BBAI</h3>
         <span class="main_color" @click="langSheet = true">{{
           $t("accountLang.lang145")
         }}</span>

@@ -4,7 +4,7 @@
       <div class="popup_top flex_between">
         <img src="@img/trade/poster_logo.png" alt="">
         <div>
-          <p>OCX</p>
+          <p>BBAI</p>
           <span v-if="income >= 0">{{ $t("tradeLang.lang209") }}</span>
           <span v-else>{{ $t("tradeLang.lang210") }}</span>
         </div>

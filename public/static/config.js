@@ -1,4 +1,4 @@
-var _config = {    
-    brandName : "OCX",
-    them : "dark",
-}
+var _config = {
+  brandName: "BBAI",
+  them: "dark",
+};

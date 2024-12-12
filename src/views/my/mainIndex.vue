@@ -15,11 +15,7 @@
         </div>
       </div>
       <ol class="user_box van-hairline--bottom">
-        <li
-          v-if="!isLogin"
-          class="flex_between"
-          @click="$router.replace('/login')"
-        >
+        <li v-if="!isLogin" class="flex_between" @click="$router.replace('/login')">
           <van-image round :src="userHead" style="background-color: black" />
           <label>
             <p>{{ $t("accountLang.lang36") }}</p>
@@ -33,11 +29,8 @@
               {{ $t("accountLang.lang38")
               }}{{ userInfo.tel || userInfo.email || "--" }}
             </p>
-            <span>UID:{{ userInfo.recomcode || "--" }}</span
-            ><br />
-            <span
-              >{{ $t("accountLang.lang158") }}:{{ userInfo.reputation }}</span
-            >
+            <span>UID:{{ userInfo.recomcode || "--" }}</span><br />
+            <span>{{ $t("accountLang.lang158") }}:{{ userInfo.reputation }}</span>
           </label>
         </li>
       </ol>
@@ -127,7 +120,7 @@ import { logout } from "@api/user";
 export default {
   data() {
     return {
-      userHead: require("@img/my/logo.png"),
+      userHead: require("@img/my/logo.png").default,
 
       exitPopup: false,
       tipPopup: false,

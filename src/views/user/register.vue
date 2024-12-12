@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav-header title="OCX" :left-arrow="!inviteCodeReadonly">
-      <h3 slot="headerTitle" class="header_title">OCX</h3>
+    <nav-header title="BBAI" :left-arrow="!inviteCodeReadonly">
+      <h3 slot="headerTitle" class="header_title">BBAI</h3>
       <span
         v-if="!inviteCodeReadonly"
         slot="headerRight"

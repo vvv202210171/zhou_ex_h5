@@ -1,7 +1,7 @@
 <template>
   <div>
-    <nav-header title="OCX">
-      <h3 slot="headerTitle" class="header_title">OCX</h3>
+    <nav-header title="BBAI">
+      <h3 slot="headerTitle" class="header_title">BBAI</h3>
       <!-- <slot name="headerTitle"></slot> -->
     </nav-header>
     <div class="main_content">
