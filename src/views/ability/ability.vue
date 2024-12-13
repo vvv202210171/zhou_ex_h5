@@ -26,6 +26,7 @@
             <h4>{{ nodeInfo.shareAbility || "0" }}</h4>
             <p>分享算力</p>
           </li>
+
         </ol>
       </div>
       <ol v-for="item in nodes" :key="item.id" class="lock_box" @click="goConfirm(item)">
@@ -88,7 +89,7 @@ export default {
       this.isload = false;
       nodes().then((res) => {
         this.isload = true;
-        this.nodes = res.data.filter((v) => v.flagNode == "N");
+        this.nodes = res.data
       });
     },
     isDisable(data) {

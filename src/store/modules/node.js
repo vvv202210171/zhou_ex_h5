@@ -6,7 +6,7 @@ const state = {
 
 const mutations = {
   nodeInfo(state, val) {
-    state.nodeInfo = val;
+    state.nodeInfo = val ? val : {};
   },
 };
 
