@@ -26,6 +26,10 @@
             <h4>{{ nodeInfo.shareAbility || "0" }}</h4>
             <p>分享算力</p>
           </li>
+          <li>
+            <h4>{{ nodeInfo.communityAbility || "0" }}</h4>
+            <p>社区算力</p>
+          </li>
 
         </ol>
       </div>
