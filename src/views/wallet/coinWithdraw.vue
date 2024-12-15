@@ -14,12 +14,8 @@
         <div class="chain_box">
           <p>{{ $t("tradeLang.lang59") }}</p>
           <ol>
-            <li
-              v-for="(item, index) in chainArr"
-              :key="index"
-              :class="[{ tab_selected: chainName == item.symbol }]"
-              @click="changeChain(item)"
-            >
+            <li v-for="(item, index) in chainArr" :key="index" :class="[{ tab_selected: chainName == item.symbol }]"
+              @click="changeChain(item)">
               {{ item.symbol }}
             </li>
           </ol>
@@ -27,23 +23,15 @@
         <ol class="input_box">
           <li>
             <van-tabs type="card" v-model="active" @change="changeTab" animated>
-              <van-tab :title="$t('commonLang.lang32')"
-                ><div class="flex input_content">
-                  <input
-                    v-model="address"
-                    v-input-line
-                    type="text"
-                    :placeholder="$t('tradeLang.lang65')"
-                    :readonly="true"
-                  />
-                  <span v-show="isPlus" @click="goScan()"
-                    ><img src="@img/wallet/icon_scan.png" alt=""
-                  /></span>
-                  <span @click="showAddressSheet()"
-                    ><img src="@img/wallet/icon_address.png" alt=""
-                  /></span></div
-              ></van-tab>
-              <van-tab :title="$t('commonLang.lang33')"
+              <van-tab :title="$t('commonLang.lang32')">
+                <div class="flex input_content">
+                  <input v-model="address" v-input-line type="text" :placeholder="$t('tradeLang.lang65')"
+                    :readonly="true" />
+                  <span v-show="isPlus" @click="goScan()"><img src="@img/wallet/icon_scan.png" alt="" /></span>
+                  <span @click="showAddressSheet()"><img src="@img/wallet/icon_address.png" alt="" /></span>
+                </div>
+              </van-tab>
+              <!-- <van-tab :title="$t('commonLang.lang33')"
                 ><div class="flex input_content">
                   <input
                     v-model="address"
@@ -55,34 +43,23 @@
                   <span @click="showBankCardSheet()"
                     ><img src="@img/my/my_menu_10.png" alt=""
                   /></span></div
-              ></van-tab>
+              ></van-tab> -->
             </van-tabs>
           </li>
           <li>
             <p>{{ $t("tradeLang.lang6") }}</p>
             <div class="flex input_content">
-              <input
-                v-model.number="number"
-                v-input-line
-                type="number"
-                :placeholder="$t('tradeLang.lang66')"
-              />
+              <input v-model.number="number" v-input-line type="number" :placeholder="$t('tradeLang.lang66')" />
               <em>{{ coinData.coin }}</em>
               <h4 class="main_color" @click="number = coinInfo.usable">
                 {{ $t("tradeLang.lang67") }}
               </h4>
             </div>
             <label class="flex_between">
-              <span
-                ><em>{{ $t("tradeLang.lang42") }}</em> {{ coinInfo.usable }}
-                {{ coinData.coin || "--" }}</span
-              >
-              <span
-                ><em
-                  >{{ $t("tradeLang.lang68") }} {{ coinData.outgas }}
-                  {{ coinData.coin || "--" }}</em
-                ></span
-              >
+              <span><em>{{ $t("tradeLang.lang42") }}</em> {{ coinInfo.usable }}
+                {{ coinData.coin || "--" }}</span>
+              <span><em>{{ $t("tradeLang.lang68") }} {{ coinData.outgas }}
+                  {{ coinData.coin || "--" }}</em></span>
             </label>
           </li>
           <li>
@@ -98,13 +75,8 @@
       </div>
 
       <div class="submit_btn">
-        <van-button
-          type="primary"
-          size="large"
-          :disabled="!(address && number)"
-          @click="showPayDialog()"
-          >{{ $t("tradeLang.lang36") }}</van-button
-        >
+        <van-button type="primary" size="large" :disabled="!(address && number)" @click="showPayDialog()">{{
+          $t("tradeLang.lang36") }}</van-button>
       </div>
       <div class="withdraw_tip">
         <p class="sub_font">
@@ -118,53 +90,26 @@
         </p>
       </div>
     </div>
-    <van-action-sheet
-      v-model="coinSheet"
-      :actions="coinList"
-      :cancel-text="$t('commonLang.lang1')"
-      @select="onSelectCoin"
-    />
-    <van-action-sheet
-      v-model="addressSheet"
-      :actions="addressList"
-      :cancel-text="$t('commonLang.lang1')"
-      @select="onSelectAddress"
-    />
-    <van-action-sheet
-      v-model="bankCardSheet"
-      :actions="bankCardList"
-      :cancel-text="$t('commonLang.lang1')"
-      @select="onSelectBankCard"
-    />
+    <van-action-sheet v-model="coinSheet" :actions="coinList" :cancel-text="$t('commonLang.lang1')"
+      @select="onSelectCoin" />
+    <van-action-sheet v-model="addressSheet" :actions="addressList" :cancel-text="$t('commonLang.lang1')"
+      @select="onSelectAddress" />
+    <van-action-sheet v-model="bankCardSheet" :actions="bankCardList" :cancel-text="$t('commonLang.lang1')"
+      @select="onSelectBankCard" />
 
-    <appDialog
-      v-model="tipPopup"
-      :title="tipData.title"
-      :text="tipData.text"
-      :confirm-text="tipData.btnText"
-      @confirmAction="pushPath(tipData.path)"
-    />
+    <appDialog v-model="tipPopup" :title="tipData.title" :text="tipData.text" :confirm-text="tipData.btnText"
+      @confirmAction="pushPath(tipData.path)" />
 
     <!-- <div class="pay_popup" v-show="payPopup">
 
     </div> -->
     <van-overlay :show="payPopup" @click="payPopup = false">
       <div class="pay_popup" @click.stop>
-        <passwordDialog
-          v-model="payPass"
-          @cancelAction="payPopup = false"
-          @confirmAction="confirmPass"
-        />
+        <passwordDialog v-model="payPass" @cancelAction="payPopup = false" @confirmAction="confirmPass" />
       </div>
     </van-overlay>
 
-    <van-popup
-      v-model="scanPopup"
-      class="right_popup"
-      position="right"
-      close-on-popstate
-      overlay-class="block_bg"
-    >
+    <van-popup v-model="scanPopup" class="right_popup" position="right" close-on-popstate overlay-class="block_bg">
       <scan :key="scanKey" @getScanText="getScanResult" />
     </van-popup>
   </div>
@@ -389,38 +334,47 @@ export default {
   border-radius: 4px;
   overflow: hidden;
 }
+
 .coin_name {
   height: 48px;
   padding: 12px 0;
   border-bottom: 1px solid rgba($lineColor, 0.5);
+
   .van-image {
     flex: 1;
     max-width: 24px;
     width: 24px;
     height: 24px;
   }
+
   h3 {
     flex: 1;
     margin-left: 10px;
   }
+
   span {
     font-size: 12px;
     color: $subFontColor;
   }
+
   i {
     font-size: 14px;
     color: $subFontColor;
     margin-left: 5px;
   }
 }
+
 .chain_box {
   margin-top: 25px;
+
   p {
     font-size: 12px;
   }
+
   ol {
     overflow: hidden;
     margin-top: 15px;
+
     li {
       float: left;
       text-align: center;
@@ -445,24 +399,29 @@ export default {
 .input_box {
   li {
     margin-top: 25px;
+
     p {
       font-size: 12px;
       margin-bottom: 15px;
     }
+
     .input_content {
       height: 48px;
       padding: 14px 0 14px 12px;
       border: 1px solid $lineColor;
       border-radius: 2px;
+
       input {
         flex: 1;
         line-height: 20px;
         height: 20px;
       }
+
       span {
         &:nth-child(2) {
           border-right: 1px solid $lineColor;
         }
+
         img {
           margin: 0 15px;
           width: 18px;
@@ -476,6 +435,7 @@ export default {
         line-height: 18px;
         color: $subFontColor;
       }
+
       h4 {
         border-left: 1px solid rgba($lineColor, 0.5);
         padding: 0 15px;
@@ -488,6 +448,7 @@ export default {
       font-size: 12px;
       padding: 15px 0 20px;
       border-bottom: 1px solid rgba($lineColor, 0.5);
+
       em {
         color: $subFontColor;
       }
@@ -501,11 +462,14 @@ export default {
   ::v-deep .van-tabs {
     .van-tabs__wrap {
       height: auto;
+
       .van-tabs__nav {
         margin: 0;
         height: auto;
+
         .van-tab {
           padding: 4px;
+
           .van-tab__text {
             word-break: break-all;
             -webkit-line-clamp: 2;
@@ -514,6 +478,7 @@ export default {
         }
       }
     }
+
     .van-tabs__content {
       margin-top: 20px;
     }

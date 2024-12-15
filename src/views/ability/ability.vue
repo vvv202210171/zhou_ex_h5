@@ -14,23 +14,29 @@
         <ol class="flex">
           <li>
             <h4>
-              {{ nodeInfo.nodeAbility + nodeInfo.shareAbility + nodeInfo.freeAbility || "0.00" }}
+              {{ nodeInfo.nodeAbility }}
             </h4>
-            <p>总算力</p>
+            <p>挖矿</p>
           </li>
-          <li>
-            <h4>{{ nodeInfo.nodeAbility || "0" }}</h4>
-            <p>节点算力</p>
-          </li>
+
           <li>
             <h4>{{ nodeInfo.shareAbility || "0" }}</h4>
-            <p>分享算力</p>
+            <p>分享</p>
+          </li>
+          <li>
+            <h4>
+              {{ nodeInfo.freeAbility }}
+            </h4>
+            <p>赠送</p>
           </li>
           <li>
             <h4>{{ nodeInfo.communityAbility || "0" }}</h4>
-            <p>社区算力</p>
+            <p>社区</p>
           </li>
-
+          <li>
+            <h4>{{ nodeInfo.nodePrice || "0" }}</h4>
+            <p>节点</p>
+          </li>
         </ol>
       </div>
       <ol v-for="item in nodes" :key="item.id" class="lock_box" @click="goConfirm(item)">
