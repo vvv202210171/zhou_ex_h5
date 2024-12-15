@@ -14,7 +14,7 @@
         <ol class="flex">
           <li>
             <h4>
-              {{ nodeInfo.nodeAbility }}
+              {{ nodeInfo.nodeAbility || "0" }}
             </h4>
             <p>挖矿</p>
           </li>
@@ -25,7 +25,7 @@
           </li>
           <li>
             <h4>
-              {{ nodeInfo.freeAbility }}
+              {{ nodeInfo.freeAbility || "0" }}
             </h4>
             <p>赠送</p>
           </li>
