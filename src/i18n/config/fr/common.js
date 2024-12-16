@@ -55,5 +55,14 @@ sq:"Communauté"
 ,
 cj:"super"
 ,
-cs:"Création"
+cs:"Création",
+zq:"faire du vélo"
+,
+jg:"prix"
+,
+sysl:"Quantité restante"
+,
+zs:"total"
+,
+gm:"Acheter"
 }

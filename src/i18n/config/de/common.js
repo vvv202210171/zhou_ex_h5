@@ -52,4 +52,13 @@ export default {
   sq: "Gemeinschaft",
   cj: "super",
   cs: "Schaffung",
-};
+zq:"Zyklus"
+,
+jg:"Preis"
+,
+sysl:"Restmenge"
+,
+zs:"gesamt"
+,
+gm:"Kaufen"
+}

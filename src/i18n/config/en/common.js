@@ -52,4 +52,13 @@ export default {
   sq: "Community",
   cj: "super",
   cs: "Creation",
-};
+zq:"cycle"
+,
+jg:"price"
+,
+sysl:"Remaining quantity"
+,
+zs:"total"
+,
+gm:"Buy"
+}

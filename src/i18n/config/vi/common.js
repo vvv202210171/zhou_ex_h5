@@ -51,4 +51,13 @@ export default {
   sq: "Cộng đồng",
   cj: "siêu",
   cs: "Sáng tạo",
-};
+zq:"xe đạp"
+,
+jg:"giá "
+,
+sysl:"Số lượng còn lại"
+,
+zs:"tổng cộng"
+,
+gm:"Mua"
+}

@@ -7,32 +7,32 @@
           <h3>{{ minerData.name || "--" }}</h3>
         </li>
         <li class="flex_between">
-          <span>每次释放比例</span>
+          <span>{{ $t('commonLang.lang43') }}</span>
           <label class="flex main_color">
             <h4>{{ minerData.gas }}</h4>
             <em>%</em>
           </label>
         </li>
         <li class="flex_between">
-          <span>周期</span>
+          <span>{{ $t('commonLang.zq') }}</span>
           <p>{{ minerData.cycle }}</p>
         </li>
         <li class="flex_between">
-          <span>价格({{ USDT }})</span>
+          <span>{{ $t('commonLang.jg') }}({{ USDT }})</span>
           <p>{{ minerData.price }}</p>
         </li>
         <li class="flex_between">
-          <span>剩余数量</span>
+          <span>{{ $t('commonLang.sysl') }}</span>
           <p>{{ minerData.remainingTime }}</p>
         </li>
         <li class="flex_between">
-          <span>总数</span>
+          <span>{{ $t('commonLang.zs') }}</span>
           <p>{{ minerData.totalTime }}</p>
         </li>
       </ol>
 
       <div class="submit_btn">
-        <van-button type="primary" size="large" @click="showPayPopup()">购买</van-button>
+        <van-button type="primary" size="large" @click="showPayPopup()">{{ $t('commonLang.gm') }}</van-button>
       </div>
     </div>
 
@@ -127,7 +127,9 @@ export default {
   margin: 15px;
   padding: 15px;
   border-radius: 4px;
-  background-color: var(--inputBox-bgColor);  li {
+  background-color: var(--inputBox-bgColor);
+
+  li {
     &:last-child {
       margin-top: 15px;
     }

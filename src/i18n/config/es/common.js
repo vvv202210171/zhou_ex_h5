@@ -52,4 +52,13 @@ export default {
   sq: "Comunidad",
   cj: "súper",
   cs: "Creación",
-};
+zq:"ciclo"
+,
+jg:"precio"
+,
+sysl:"Cantidad restante"
+,
+zs:"total"
+,
+gm:"Comprar"
+}
