@@ -32,7 +32,7 @@
           </li>
           <li>
             <h4>{{ nodeInfo.communityAbility || "0" }}</h4>
-            <p>{{ $t('commonLang.lang41') }}</p>
+            <p>{{ $t('commonLang.bmd') }}</p>
           </li>
           <li>
             <h4>{{ nodeInfo.nodePrice || "0" }}</h4>
