@@ -47,4 +47,9 @@ export default {
   lang43: "Relación de dividendos",
   lang44: "dinero",
   lang36: "centro de computo",
+  bmd: "lista blanca",
+  gzs: "estudio",
+  sq: "Comunidad",
+  cj: "súper",
+  cs: "Creación",
 };

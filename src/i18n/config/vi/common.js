@@ -46,4 +46,9 @@ export default {
   lang43: "Tỷ lệ cổ tức",
   lang44: "tiền mặt",
   lang36: "Trung tâm tin học",
+  bmd: "danh sách trắng",
+  gzs: "phòng thu",
+  sq: "Cộng đồng",
+  cj: "siêu",
+  cs: "Sáng tạo",
 };

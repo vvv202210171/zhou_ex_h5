@@ -47,4 +47,13 @@ export default {
   lang43: "Taux de dividende",
   lang44: "espèces",
   lang36: "Centre informatique",
-};
+bmd:"liste blanche"
+,
+gzs:"studio"
+,
+sq:"Communauté"
+,
+cj:"super"
+,
+cs:"Création"
+}

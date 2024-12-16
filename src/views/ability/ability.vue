@@ -100,6 +100,12 @@ export default {
       this.isload = false;
       nodes().then((res) => {
         this.isload = true;
+        if (res.data) {
+          const ret = res.data
+          for (const node of ret) {
+            node.name = this.$t(`commonLang.${node.logo}`)
+          }
+        }
         this.nodes = res.data
       });
     },

@@ -43,4 +43,9 @@ export default {
   lang42: "simpul",
   lang43: "Rasio dividen",
   lang44: "uang tunai",
+  bmd: "daftar putih",
+  gzs: "studio",
+  sq: "Masyarakat",
+  cj: "super",
+  cs: "Penciptaan",
 };

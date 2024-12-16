@@ -43,4 +43,9 @@ export default {
   lang42: "节点",
   lang43: "分红比例",
   lang44: "兑现",
+  bmd: "白名单",
+  gzs: "工作室",
+  sq: "社区",
+  cj: "超级",
+  cs: "创世",
 };

@@ -47,4 +47,9 @@ export default {
   lang43: "Dividendenquote",
   lang44: "Kasse",
   lang36: "Rechenzentrum",
+  bmd: "Whitelist",
+  gzs: "Studio",
+  sq: "Gemeinschaft",
+  cj: "super",
+  cs: "Schaffung",
 };

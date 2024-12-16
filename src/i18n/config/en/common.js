@@ -47,4 +47,9 @@ export default {
   lang43: "Dividend Ratio",
   lang44: "cash",
   lang36: "Computing Center",
+  bmd: "Whitelist",
+  gzs: "studio",
+  sq: "Community",
+  cj: "super",
+  cs: "Creation",
 };

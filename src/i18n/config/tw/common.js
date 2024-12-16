@@ -45,4 +45,9 @@ export default {
   lang42: "節點",
   lang43: "分紅比例",
   lang44: "兌現",
+  bmd: "白名單",
+  gzs: "工作室",
+  sq: "社群",
+  cj: "超",
+  cs: "創世",
 };

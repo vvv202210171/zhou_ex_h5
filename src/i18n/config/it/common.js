@@ -47,4 +47,9 @@ export default {
   lang43: "Rapporto del dividendo",
   lang44: "contanti",
   lang36: "Centro di calcolo",
+  bmd: "lista bianca",
+  gzs: "studio",
+  sq: "Comunità",
+  cj: "super",
+  cs: "Creazione",
 };

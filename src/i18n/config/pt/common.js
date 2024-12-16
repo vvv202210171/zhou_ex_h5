@@ -46,5 +46,10 @@ export default {
   lang42: "nó",
   lang43: "Taxa de dividendos",
   lang44: "dinheiro",
-lang36:"Centro de computação"
-}
+  lang36: "Centro de computação",
+  bmd: "lista branca",
+  gzs: "estúdio",
+  sq: "Comunidade",
+  cj: "super",
+  cs: "Criação",
+};
