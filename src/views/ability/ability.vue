@@ -28,11 +28,11 @@
             <h4>
               {{ nodeInfo.freeAbility || "0" }}
             </h4>
-            <p>{{ $t('commonLang.lang40') }}</p>
+            <p>{{ $t('commonLang.bmd') }}</p>
           </li>
           <li>
             <h4>{{ nodeInfo.communityAbility || "0" }}</h4>
-            <p>{{ $t('commonLang.bmd') }}</p>
+            <p>{{ $t('commonLang.lang41') }}</p>
           </li>
           <li>
             <h4>{{ nodeInfo.nodePrice || "0" }}</h4>
