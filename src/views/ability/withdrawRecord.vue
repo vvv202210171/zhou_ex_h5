@@ -1,13 +1,13 @@
 <template>
   <div>
-    <nav-header title="兑换记录" />
+    <nav-header :title="$t('commonLang.dhjl')" />
     <div class="main_content">
       <van-list v-model="loading" :finished="finished" @load="loadMore">
-        <van-cell title="单元格" value="内容" v-for="item in recordList" :key="item">
+        <van-cell v-for="item in recordList" :key="item">
           <div slot="title" class="flex">
             <img src="@img/bbai/with.png" alt="" style="width: 30px;height: 30px;" />
             <div class="log">
-              <h5>{{ item.number }}算力</h5>
+              <h5>{{ item.number }}{{ $t('commonLang.sl') }}</h5>
               <p>{{ item.writedate }}</p>
             </div>
 
@@ -71,14 +71,15 @@ export default {
     },
     parseText(v) {
       if (v == 'sending') {
-        return "审核中";
+        return this.$t(`commonLang.${v}`)
       }
       if (v == 'pass') {
-        return "通过";
+        return this.$t(`commonLang.${v}`)
       }
       if (v == 'reject') {
-        return "拒绝";
+        return this.$t(`commonLang.${v}`)
       }
+      return v;
     },
     loadMore() {
       withdrawLog().then((res) => {

@@ -52,13 +52,15 @@ export default {
   sq: "Community",
   cj: "super",
   cs: "Creation",
-zq:"cycle"
-,
-jg:"price"
-,
-sysl:"Remaining quantity"
-,
-zs:"total"
-,
-gm:"Buy"
-}
+  zq: "cycle",
+  jg: "price",
+  sysl: "Remaining quantity",
+  zs: "total",
+  gm: "Buy",
+  dhjl: "Exchange Record",
+  sl: "Hashrate",
+  sending: "Under review",
+  pass: "pass",
+  reject: "reject",
+  gmjl: "Purchase history",
+};

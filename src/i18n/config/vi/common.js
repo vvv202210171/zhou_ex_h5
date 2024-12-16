@@ -51,13 +51,15 @@ export default {
   sq: "Cộng đồng",
   cj: "siêu",
   cs: "Sáng tạo",
-zq:"xe đạp"
-,
-jg:"giá "
-,
-sysl:"Số lượng còn lại"
-,
-zs:"tổng cộng"
-,
-gm:"Mua"
-}
+  zq: "xe đạp",
+  jg: "giá ",
+  sysl: "Số lượng còn lại",
+  zs: "tổng cộng",
+  gm: "Mua",
+  dhjl: "Trao đổi hồ sơ",
+  sl: "Sức mạnh tính toán",
+  sending: "Đang xem xét",
+  pass: "vượt qua",
+  reject: "từ chối",
+  gmjl: "Lịch sử mua hàng",
+};

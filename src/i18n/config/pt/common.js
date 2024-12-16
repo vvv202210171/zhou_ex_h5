@@ -52,13 +52,15 @@ export default {
   sq: "Comunidade",
   cj: "super",
   cs: "Criação",
-zq:"ciclo"
-,
-jg:"preço"
-,
-sysl:"Quantidade restante"
-,
-zs:"total"
-,
-gm:"Comprar"
-}
+  zq: "ciclo",
+  jg: "preço",
+  sysl: "Quantidade restante",
+  zs: "total",
+  gm: "Comprar",
+  dhjl: "Registro de troca",
+  sl: "Poder de computação",
+  sending: "Em revisão",
+  pass: "passar",
+  reject: "rejeitar",
+  gmjl: "Histórico de compras",
+};

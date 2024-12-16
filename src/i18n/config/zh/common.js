@@ -53,4 +53,10 @@ export default {
   sysl: "剩余数量",
   zs: "总数",
   gm: "购买",
+  dhjl: "兑换记录",
+  sl: "算力",
+  sending: "审核中",
+  pass: "通过",
+  reject: "拒绝",
+  gmjl: "购买记录",
 };

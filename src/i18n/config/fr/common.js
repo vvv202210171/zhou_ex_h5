@@ -64,5 +64,15 @@ sysl:"Quantité restante"
 ,
 zs:"total"
 ,
-gm:"Acheter"
+gm:"Acheter",
+dhjl:"Dossier d'échange"
+,
+sl:"Puissance de calcul"
+,
+sending:"En cours de révision"
+,
+pass:"passer"
+,
+reject:"rejeter",
+gmjl:"Historique des achats"
 }

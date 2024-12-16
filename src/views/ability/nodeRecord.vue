@@ -1,20 +1,20 @@
 <template>
   <div>
-    <nav-header title="购买记录" />
-    <div class="main_content">
+    <nav-header :title="$t('commonLang.gmjl')" />
+    <div class=" main_content">
       <van-list v-model="loading" :finished="finished" @load="loadMore">
         <ol v-for="item in recordList" :key="item" class="record_box">
           <li class="flex_between">
             <h3>{{ item.name }}</h3>
             <span v-if="item.state == 'enable'" class="main_color">{{
               $t("homeLang.lang69")
-            }}</span>
+              }}</span>
             <span v-if="item.state == 'success'">{{
               $t("homeLang.lang70")
-            }}</span>
+              }}</span>
             <span v-if="item.state == 'close'" class="sub_font">{{
               $t("homeLang.lang71")
-            }}</span>
+              }}</span>
           </li>
           <li class="flex_between">
             <em>{{ $t("homeLang.lang60") }}</em>
@@ -145,8 +145,7 @@ export default {
     }
 
     button {
-      margin-top: 10px;
-    }
+      margin-top: 10px;  }
   }
 }
 </style>
