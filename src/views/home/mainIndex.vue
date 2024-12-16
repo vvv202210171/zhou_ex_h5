@@ -28,12 +28,13 @@
           <div class="bg-top1">
             <div class="bg-top-left">
               <h2>
-                <p>欢迎来到</p>
+                <p>{{ $t("homeLang.lang77") }}</p>
                 <p>BBAI</p>
               </h2>
               <p>
-              <h3>陪你探索无限未来</h3>
-              <span>安全&nbsp;/&nbsp;便捷&nbsp;/&nbsp;创新&nbsp;/&nbsp;未来</span>
+              <h3>{{ $t("homeLang.lang78") }}</h3>
+              <span>{{ $t("homeLang.lang79") }}&nbsp;/&nbsp;{{ $t("homeLang.lang80") }}&nbsp;/&nbsp;{{
+                $t("homeLang.lang81") }}&nbsp;/&nbsp;{{ $t("homeLang.lang82") }}</span>
               </p>
             </div>
             <div class="flex">
@@ -42,25 +43,25 @@
           </div>
           <div style="margin-top: 20px;" v-if="!isLogin">
             <van-button type="danger" size="large" round hairline @click="pushPath('login')">
-              登陆/注册</van-button>
+              {{ $t("homeLang.lang83") }}</van-button>
           </div>
           <div>
             <ul style="margin-top: 20px;" v-if="isLogin" class="flex ul ">
               <li class="userinfo" @click="pushPath('coinRecharge')">
                 <img src="@img/bbai/in.png" alt="" width="50" height="50" />
-                <span>充值</span>
+                <span>{{ $t("homeLang.lang84") }}</span>
               </li>
               <li class="userinfo" @click="pushPath('coinWithdraw')">
                 <img src="@img/bbai/out.png" alt="" width="50" height="50" />
-                <span>提现</span>
+                <span>{{ $t("homeLang.lang85") }}</span>
               </li>
               <li class="userinfo" @click="pushPath('inviteFriends')">
                 <img src="@img/bbai/share.png" alt="" width="50" height="50" />
-                <span>分享好友</span>
+                <span>{{ $t("homeLang.lang86") }}</span>
               </li>
               <li class="userinfo" @click="pushPath('securityCenter')">
                 <img src="@img/bbai/security.png" alt="" width="50" height="50" />
-                <span>安全中心</span>
+                <span>{{ $t("homeLang.lang87") }}</span>
               </li>
             </ul>
 
@@ -68,21 +69,21 @@
           <div style="margin-top: 20px;" class="lock flex">
             <div class="lock-left" @click="pushPath('ability')">
               <div>
-                <h3>BBAI全新上线</h3>
-                <span style="color: red;">100USDT</span>
+                <h3>{{ $t("homeLang.lang88") }}</h3>
+                <!-- <span style="color: red;">100USDT</span> -->
               </div>
               <img :src="require('../../assets/img/bbai/image7.png').default" alt="" width="125" height="125" />
             </div>
             <div class="lock-right">
               <div class="lock-right-top" @click="pushPath('lockMining')">
-                <h3>挖矿中心</h3>
+                <h3>{{ $t("homeLang.lang89") }}</h3>
                 <van-image fit="cover" :src="require('../../assets/img/bbai/image8.png').default" height="125px" />
               </div>
               <div class="lock-right-bt">
 
                 <p class="lock-right-bt-text">
-                  <span>理财</span>
-                  <em>闲钱中心</em>
+                  <span>{{ $t("homeLang.lang90") }}</span>
+                  <em>{{ $t("homeLang.lang91") }}</em>
                 </p>
                 <van-image fit="cover" :src="require('../../assets/img/bbai/image9.png').default"
                   class="lock-right-bt-img" />
@@ -340,6 +341,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 50px;
 
         span {
           font-size: 12px;

@@ -74,5 +74,22 @@ export default {
   lang72: "Pendapatan kumulatif",
   lang73: "Waktu manajemen",
   lang74: "Waktu kedaluwarsa",
-  lang75: "Tentukan penebusan awal hak asuh, biaya penanganan yang sesuai akan dikurangi untuk penebusan awal"
-}
+  lang75:
+    "Tentukan penebusan awal hak asuh, biaya penanganan yang sesuai akan dikurangi untuk penebusan awal",
+  lang76: "Perkiraan pendapatan harian",
+  lang77: "Selamat Datang di",
+  lang78: "Menemani Anda menjelajahi masa depan tanpa batas",
+  lang79: "Keamanan",
+  lang80: "Nyaman",
+  lang81: "inovasi",
+  lang82: "masa depan",
+  lang83: "Masuk/Daftar",
+  lang84: "isi ulang",
+  lang85: "Tarik uang tunai",
+  lang86: "Bagikan dengan teman",
+  lang87: "Pusat Keamanan",
+  lang88: "BBAI baru saja diluncurkan",
+  lang89: "Pusat Pertambangan",
+  lang90: "manajemen keuangan",
+  lang91: "pusat uang cadangan",
+};

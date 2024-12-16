@@ -80,5 +80,36 @@ export default {
   lang72: 'Revenu cumulé',
   lang73: 'Temps de gestion',
   lang74: "Délai d'expiration",
-  lang75: 'Déterminer le remboursement anticipé de la garde, les frais de gestion correspondants seront déduits pour le remboursement anticipé'
+  lang75: 'Déterminer le remboursement anticipé de la garde, les frais de gestion correspondants seront déduits pour le remboursement anticipé',
+lang76:"Revenu journalier estimé"
+,
+lang77:"bienvenue à"
+,
+lang78:"Vous accompagner pour explorer le futur infini"
+,
+lang79:"Sécurité"
+,
+lang80:"Pratique"
+,
+lang81:"innovation"
+,
+lang82:"avenir"
+,
+lang83:"Connexion/Inscription"
+,
+lang84:"recharger"
+,
+lang85:"Retirer de l'argent"
+,
+lang86:"Partager avec des amis"
+,
+lang87:"Centre de sécurité"
+,
+lang88:"BBAI est nouvellement lancé"
+,
+lang89:"Centre minier"
+,
+lang90:"gestion financière"
+,
+lang91:"centre d'argent de rechange"
 }
