@@ -18,7 +18,7 @@
           <p>{{ minerData.cycle }}</p>
         </li>
         <li class="flex_between">
-          <span>{{ $t('commonLang.jg') }}({{ USDT }})</span>
+          <span>{{ $t('commonLang.jg') }}（USDT）</span>
           <p>{{ minerData.price }}</p>
         </li>
         <li class="flex_between">

@@ -48,7 +48,7 @@ export default {
   bmd: "白名單",
   gzs: "工作室",
   sq: "社群",
-  cj: "超",
+  cj: "超級",
   cs: "創世",
   zq: "週期",
   jg: "價格",
