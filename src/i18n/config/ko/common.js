@@ -37,5 +37,14 @@ export default {
   lang35: "은행 카드 바인딩",
   disableLock:
     "이 기능은 아직 공개되지 않았습니다. 계속 지켜봐 주시기 바랍니다.",
-rechargeJietu:"스크린샷 재충전"
-}
+  rechargeJietu: "스크린샷 재충전",
+  lang37: "컴퓨팅 파워가 공개되었습니다",
+  lang38: "채광",
+  lang39: "공유하다",
+  lang40: "포기하다",
+  lang41: "지역 사회",
+  lang42: "마디",
+  lang43: "배당비율",
+  lang44: "현금",
+  lang36: "전산센터",
+};

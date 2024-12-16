@@ -37,5 +37,14 @@ export default {
   lang34: "Please enter your bank card number",
   lang35: "Bind bank card",
   disableLock: "This feature is not yet open, please look forward to it",
-  rechargeJietu:"Recharge screenshot"
-}
+  rechargeJietu: "Recharge screenshot",
+  lang37: "Released computing power",
+  lang38: "Mining",
+  lang39: "share",
+  lang40: "Giveaway",
+  lang41: "Community",
+  lang42: "node",
+  lang43: "Dividend Ratio",
+  lang44: "cash",
+  lang36: "Computing Center",
+};

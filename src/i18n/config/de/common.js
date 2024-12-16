@@ -38,4 +38,13 @@ export default {
   lang35: "Bankkarte binden",
   disableLock: "Diese Funktion ist noch nicht verfügbar, bleiben Sie dran",
   rechargeJietu: "Screenshot zum Aufladen",
+  lang37: "Rechenleistung wurde freigegeben",
+  lang38: "Bergbau",
+  lang39: "Aktie",
+  lang40: "verschenken",
+  lang41: "Gemeinschaft",
+  lang42: "Knoten",
+  lang43: "Dividendenquote",
+  lang44: "Kasse",
+  lang36: "Rechenzentrum",
 };

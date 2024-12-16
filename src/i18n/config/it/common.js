@@ -37,5 +37,14 @@ export default {
   lang34: "Inserisci il numero della tua carta bancaria",
   lang35: "Bilancia carta bancaria",
   disableLock: "Questa funzione non è ancora aperta, resta sintonizzato",
-rechargeJietu:"Schermata di ricarica"
-}
+  rechargeJietu: "Schermata di ricarica",
+  lang37: "La potenza di calcolo è stata rilasciata",
+  lang38: "Estrazione mineraria",
+  lang39: "condividere",
+  lang40: "dare via",
+  lang41: "Comunità",
+  lang42: "nodo",
+  lang43: "Rapporto del dividendo",
+  lang44: "contanti",
+  lang36: "Centro di calcolo",
+};

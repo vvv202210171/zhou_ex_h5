@@ -37,4 +37,13 @@ export default {
   lang35: "Ràng buộc thẻ ngân hàng",
   disableLock: "Tính năng này chưa mở, hãy theo dõi",
   rechargeJietu: "Ảnh chụp màn hình nạp tiền",
+  lang37: "Sức mạnh tính toán đã được giải phóng",
+  lang38: "Khai thác mỏ",
+  lang39: "chia sẻ",
+  lang40: "cho đi",
+  lang41: "Cộng đồng",
+  lang42: "nút",
+  lang43: "Tỷ lệ cổ tức",
+  lang44: "tiền mặt",
+  lang36: "Trung tâm tin học",
 };

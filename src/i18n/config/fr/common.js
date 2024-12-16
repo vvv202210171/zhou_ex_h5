@@ -38,4 +38,13 @@ export default {
   lang35: "lier la carte bancaire",
   disableLock: "Cette fonction n'est pas encore ouverte, restez à l'écoute",
   rechargeJietu: "Capture d'écran de recharge",
+  lang37: "La puissance de calcul a été libérée",
+  lang38: "Exploitation minière",
+  lang39: "partager",
+  lang40: "révéler",
+  lang41: "Communauté",
+  lang42: "nœud",
+  lang43: "Taux de dividende",
+  lang44: "espèces",
+  lang36: "Centre informatique",
 };

@@ -36,4 +36,13 @@ export default {
   lang35: "綁定銀行卡",
   disableLock: "该功能尚未开放，尽情期待",
   rechargeJietu: "充值截图",
+  lang36: "算力中心",
+  lang37: "已釋放算力",
+  lang38: "挖礦",
+  lang39: "分享",
+  lang40: "贈送",
+  lang41: "社群",
+  lang42: "節點",
+  lang43: "分紅比例",
+  lang44: "兌現",
 };

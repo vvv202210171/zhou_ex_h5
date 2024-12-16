@@ -1,14 +1,15 @@
 <template>
   <div>
-    <nav-header title="算力中心" @clickRight="pushPath('/nodeRecord')">
+    <nav-header :title="$t('commonLang.lang36')" @clickRight="pushPath('/nodeRecord')">
       <span slot="headerRight" class="right_img"><img src="@img/home/icon_record.png" alt="" /></span>
     </nav-header>
     <div class="main_content">
       <div class="lock_top">
-        <p>已释放算力</p>
+        <p>{{ $t('commonLang.lang37') }}</p>
         <h2>
           {{ nodeInfo.releaseAbility || "0.00"
-          }}<span style="color: green; font-size: 14px; margin-left: 5px" @click="withDrawAbility">兑现</span>
+          }}<span style="color: green; font-size: 14px; margin-left: 5px" @click="withDrawAbility">{{
+            $t('commonLang.lang44') }}</span>
           <i class="iconfont icon-arrow-right main_color" @click="pushPath('/withdrawRecord')" style="float: right;" />
         </h2>
         <ol class="flex">
@@ -16,26 +17,26 @@
             <h4>
               {{ nodeInfo.nodeAbility || "0" }}
             </h4>
-            <p>挖矿</p>
+            <p>{{ $t('commonLang.lang38') }}</p>
           </li>
 
           <li>
             <h4>{{ nodeInfo.shareAbility || "0" }}</h4>
-            <p>分享</p>
+            <p>{{ $t('commonLang.lang39') }}</p>
           </li>
           <li>
             <h4>
               {{ nodeInfo.freeAbility || "0" }}
             </h4>
-            <p>赠送</p>
+            <p>{{ $t('commonLang.lang40') }}</p>
           </li>
           <li>
             <h4>{{ nodeInfo.communityAbility || "0" }}</h4>
-            <p>社区</p>
+            <p>{{ $t('commonLang.lang41') }}</p>
           </li>
           <li>
             <h4>{{ nodeInfo.nodePrice || "0" }}</h4>
-            <p>节点</p>
+            <p>{{ $t('commonLang.lang42') }}</p>
           </li>
         </ol>
       </div>
@@ -53,7 +54,7 @@
               <p>{{ item.gas }}</p>
               <em>%</em>
             </label>
-            <span>每日释放比例</span>
+            <span>{{ $t('commonLang.lang43') }}</span>
           </div>
           <div>
             <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>

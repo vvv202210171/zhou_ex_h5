@@ -38,4 +38,13 @@ export default {
   lang35: "Vincular tarjeta bancaria",
   disableLock: "Esta función aún no está disponible, estad atentos",
   rechargeJietu: "Recargar captura de pantalla",
+  lang37: "Se ha liberado la potencia informática",
+  lang38: "Minería",
+  lang39: "compartir",
+  lang40: "donar",
+  lang41: "Comunidad",
+  lang42: "nodo",
+  lang43: "Relación de dividendos",
+  lang44: "dinero",
+  lang36: "centro de computo",
 };
