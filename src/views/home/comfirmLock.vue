@@ -8,10 +8,10 @@
         </li>
         <li class="flex_between">
           <span>{{ $t("homeLang.lang55") }}</span>
-          <label class="flex main_color"
-            ><h4>{{ minerData.gas }}</h4>
-            <em>%</em></label
-          >
+          <label class="flex main_color">
+            <h4>{{ minerData.gas }}</h4>
+            <em>%</em>
+          </label>
         </li>
         <li class="flex_between">
           <span>{{ $t("homeLang.lang56") }}</span>
@@ -39,21 +39,14 @@
         <li>
           <p>{{ $t("homeLang.lang60") }}</p>
           <div class="flex">
-            <input
-              v-model.number="number"
-              v-input-line
-              type="number"
-              :placeholder="$t('homeLang.lang63')"
-            />
+            <input v-model.number="number" v-input-line type="number" :placeholder="$t('homeLang.lang63')" />
             <em>USDT</em>
             <h4 class="main_color" @click="number = usable">
               {{ $t("tradeLang.lang67") }}
             </h4>
           </div>
           <label class="flex_between">
-            <span
-              ><em>{{ $t("tradeLang.lang42") }}</em> {{ usable }} USDT</span
-            >
+            <span><em>{{ $t("tradeLang.lang42") }}</em> {{ usable }} USDT</span>
           </label>
         </li>
         <li>
@@ -61,7 +54,7 @@
           <h2 v-if="number">
             {{
               ((number * minerData.cycle * minerData.gas) / 10000)
-                | mathFloor(2)
+              | mathFloor(2)
             }}
           </h2>
           <h2 v-if="!number">0.00</h2>
@@ -84,11 +77,7 @@
 
     <van-overlay :show="payPopup" @click="payPopup = false">
       <div class="pay_popup" @click.stop>
-        <passwordDialog
-          v-model="payPass"
-          @cancelAction="payPopup = false"
-          @confirmAction="confirmPass"
-        />
+        <passwordDialog v-model="payPass" @cancelAction="payPopup = false" @confirmAction="confirmPass" />
       </div>
     </van-overlay>
   </div>
@@ -162,49 +151,60 @@ export default {
   padding: 0 15px 15px;
   border-radius: 4px;
   background-color: $blockColor;
+
   li {
     line-height: 20px;
     margin-top: 12px;
+
     &:first-child {
       padding: 12px 0 10px;
       margin: 0;
       border-bottom: 1px solid $lineColor;
     }
+
     span {
       color: $subFontColor;
     }
+
     em {
       font-size: 12px;
       line-height: 12px;
     }
   }
 }
+
 .input_box {
   margin: 15px;
   padding: 15px;
   border-radius: 4px;
   background-color: var(--inputBox-bgColor);
+
   li {
     &:last-child {
       margin-top: 15px;
     }
+
     p {
       margin-bottom: 15px;
     }
+
     div {
       height: 48px;
       padding: 14px 0 14px 12px;
       border: 1px solid $lineColor;
       border-radius: 2px;
+
       input {
         flex: 1;
         line-height: 20px;
         height: 20px;
       }
+
       span {
         &:nth-child(2) {
           border-right: 1px solid rgba($lineColor, 0.5);
         }
+
         img {
           margin: 0 15px;
           width: 18px;
@@ -218,6 +218,7 @@ export default {
         line-height: 18px;
         color: $subFontColor;
       }
+
       h4 {
         border-left: 1px solid rgba($lineColor, 0.5);
         padding: 0 15px;
@@ -230,6 +231,7 @@ export default {
       font-size: 12px;
       padding: 15px 0;
       border-bottom: 1px solid rgba($lineColor, 0.2);
+
       em {
         color: $subFontColor;
       }
@@ -240,6 +242,7 @@ export default {
     }
   }
 }
+
 .submit_btn {
   margin: 25px 15px 15px;
 }

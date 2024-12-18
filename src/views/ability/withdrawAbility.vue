@@ -7,7 +7,10 @@
         <h1 class="h1">{{ amountCurr }}</h1>
         <span>算力</span>
       </div>
-      <div class="flex_center grey">兑换≈ {{ currentBbai }}BBAI</div>
+      <div class="flex_center grey fee">兑换≈ {{ currentBbai }}<strong class="sub_color">&nbsp; BBAI</strong> </div>
+      <div class="flex_center grey fee">手续费≈ {{ fee }}<strong class="sub_color">&nbsp;BBAI</strong> </div>
+      <div class="flex_center grey fee">燃烧费≈ {{ fire }}<strong class="sub_color">&nbsp;BBAI</strong> </div>
+      <div class="flex_center  fee green_color">实际到账≈ {{ last }}<strong class="sub_color">&nbsp;BBAI</strong> </div>
     </div>
 
     <van-number-keyboard :show="show" theme="custom" extra-key="." v-model="amount"
@@ -28,18 +31,39 @@ export default {
       quickOps: [{ text: "快捷支付", value: 0 }],
       coinOps: [],
       selectCoin: "",
-      currentBbai:0
     };
   },
   computed: {
     amountCurr() {
       return parseFloat(this.amount);
     },
- 
     ...mapState({
       marketSocketData: (state) => state.trade.marketSocketData,
+      getConfig: (state) => state.common.getConfig,
     }),
-
+    fee() {
+      if (!this.getConfig) {
+        return 0;
+      }
+      return (this.currentBbai * this.getConfig.BBAI_WITHDRAW_FEE / 100).toFixed(2)
+    },
+    last() {
+      return (this.currentBbai - this.fee - this.fire).toFixed(2);
+    },
+    fire() {
+      if (!this.getConfig) {
+        return 0;
+      }
+      return (this.currentBbai * this.getConfig.BBAI_WITHDRAW_FIRE_FEE / 100).toFixed(2)
+    },
+    currentBbai() {
+      if (!this.marketSocketData || !this.marketSocketData.symbols) {
+        return 0;
+      }
+      const bbai = this.marketSocketData.symbols.find(v => v.tradcoin === 'BBAI');
+      // 仅返回计算结果，不修改其他属性
+      return bbai ? (bbai.price * this.amountCurr).toFixed(2) : 0;
+    },
     currentCoin() {
       // 返回当前选择的 coin 名称
       const selectedOption = this.coinOps.find(
@@ -48,23 +72,17 @@ export default {
       return selectedOption ? selectedOption.text : "";
     },
   },
-  watch:{
-    marketSocketData(newData){
-      console.log("newData",newData)
-      const bbai = newData.symbols.find(v => v.tradcoin === 'BBAI');
-      this.currentBbai= bbai ? bbai.price * this.amountCurr : 0;
-    }
-  },
+
   methods: {
     onClickLeft() {
       this.$router.go(-1);
     },
 
-  async  buyOrSell() {
-   const ret=await   bbaiWithdraw({number:this.amountCurr});
-   if(ret.code==200){
-    this.pushPath("/withdrawRecord")
-   }
+    async buyOrSell() {
+      const ret = await bbaiWithdraw({ number: this.amountCurr });
+      if (ret.code == 200) {
+        this.pushPath("/withdrawRecord")
+      }
     },
   },
   mounted() {
@@ -149,11 +167,15 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 200px;
+  height: 280px;
 
   /* 可根据需要调整 */
   .grey {
     color: var(--subFontColor);
+  }
+
+  .fee {
+    margin-bottom: 15px;
   }
 
   .base-line {

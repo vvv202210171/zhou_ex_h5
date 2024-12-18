@@ -61,4 +61,5 @@ export default {
   pass: "透過",
   reject: "拒絕",
   gmjl: "購買記錄",
+  zfbz: "支付幣種",
 };

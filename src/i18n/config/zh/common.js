@@ -59,4 +59,5 @@ export default {
   pass: "通过",
   reject: "拒绝",
   gmjl: "购买记录",
+  zfbz: "支付币种",
 };

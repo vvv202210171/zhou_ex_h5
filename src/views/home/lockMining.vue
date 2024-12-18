@@ -33,10 +33,9 @@
         <li class="flex">
           <div>
             <label class="flex main_color">
-              <p>{{ item.gas }}</p>
-              <em>%</em>
+              <p>{{ item.payCoin }}</p>
             </label>
-            <span>{{ $t("homeLang.lang52") }}</span>
+            <span>{{ $t("commonLang.zfbz") }}</span>
           </div>
           <div>
             <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>

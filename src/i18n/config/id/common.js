@@ -59,4 +59,5 @@ export default {
   pass: "lulus",
   reject: "menolak",
   gmjl: "Riwayat pembelian",
+  zfbz: "Mata uang pembayaran",
 };

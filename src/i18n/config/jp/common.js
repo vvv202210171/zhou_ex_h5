@@ -73,5 +73,6 @@ sending:"検討中"
 pass:"合格"
 ,
 reject:"拒否する",
-gmjl:"購入履歴"
+gmjl:"購入履歴",
+zfbz:"支払い通貨"
 }

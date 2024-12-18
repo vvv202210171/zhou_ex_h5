@@ -63,4 +63,5 @@ export default {
   pass: "aprobar",
   reject: "rechazar",
   gmjl: "Historial de compras",
-};
+zfbz:"Moneda de pago"
+}

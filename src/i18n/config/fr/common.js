@@ -74,5 +74,6 @@ sending:"En cours de révision"
 pass:"passer"
 ,
 reject:"rejeter",
-gmjl:"Historique des achats"
+gmjl:"Historique des achats",
+zfbz:"Devise de paiement"
 }

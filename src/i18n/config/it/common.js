@@ -63,4 +63,5 @@ export default {
   pass: "passaggio",
   reject: "rifiutare",
   gmjl: "Cronologia acquisti",
-};
+zfbz:"Valuta di pagamento"
+}

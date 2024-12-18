@@ -62,4 +62,5 @@ export default {
   pass: "vượt qua",
   reject: "từ chối",
   gmjl: "Lịch sử mua hàng",
+  zfbz: "Đồng tiền thanh toán",
 };

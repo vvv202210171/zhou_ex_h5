@@ -63,4 +63,5 @@ export default {
   pass: "통과하다",
   reject: "거부하다",
   gmjl: "구매 내역",
-};
+zfbz:"결제 통화"
+}
