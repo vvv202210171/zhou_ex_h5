@@ -37,9 +37,9 @@
                 $t("homeLang.lang81") }}&nbsp;/&nbsp;{{ $t("homeLang.lang82") }}</span>
               </p>
             </div>
-            <div class="flex">
-              <img :src="require('../../assets/img/bbai/Frame.png').default" alt="" width="125" height="125" />
-            </div>
+            <!-- <div class="flex">
+              <img :src="require('@img/bbai/Frame.png').default" alt="" width="125" height="125" />
+            </div> -->
           </div>
           <div style="margin-top: 20px;" v-if="!isLogin">
             <van-button type="danger" size="large" round hairline @click="pushPath('login')">
@@ -70,7 +70,7 @@
             <div class="lock-left" @click="pushPath('ability')">
               <div>
                 <h3>{{ $t("homeLang.lang88") }}</h3>
-                <!-- <span style="color: red;">100USDT</span> -->
+                <span class="green_color">≈{{ bbaiPrice }} BBAI/USDT</span>
               </div>
               <img :src="require('../../assets/img/bbai/image7.png').default" alt="" width="125" height="125" />
             </div>
@@ -213,6 +213,14 @@ export default {
       baseImgUrl: (state) => state.common.baseImgUrl,
       isLogin: (state) => state.common.isLogin,
     }),
+    bbaiPrice() {
+      console.log("marketSocketData", this.marketSocketData);
+      if (this.marketSocketData && this.marketSocketData.symbols) {
+        const price = this.marketSocketData.symbols.find(v => v.tradcoin == "BBAI");
+        return parseFloat(price ? price.price : 0).toFixed(3);
+      }
+      return 0;
+    }
   },
   watch: {
     // 监听socket 数据  实时更新
@@ -314,11 +322,7 @@ export default {
     },
     showOnlineService() {
       //06客户的客服链接是外部加载形式，但是app无法跳转外部 所以区别处理，跳内部浏览器页面去加载
-      if (window.cordova || location.search.indexOf("isapp") !== -1) {
-        this.$router.push("/browser");
-      } else {
-        window.open(this.serviceUrl.KF_ADDRESS_H5);
-      }
+      location.href = this.serviceUrl.KF_ADDRESS_H5;
     },
   },
 };
@@ -421,6 +425,7 @@ export default {
     .bg-top1 {
       justify-content: space-between;
       display: flex;
+      background-image: url(../../assets/img/bbai/main.gif);
 
       .bg-top-left {
         display: flex;

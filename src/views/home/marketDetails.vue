@@ -1,18 +1,19 @@
 <!-- 币种详情 -->
 <template>
   <div>
-    <nav-header :title="coinData.tradcoin+'/'+coinData.maincoin">
-      <span slot="headerRight" :class="[coinData.isOptional?'icon-star main_color':'icon-star-o','iconfont']" @click="handleOptional()" />
+    <nav-header :title="coinData.tradcoin + '/' + coinData.maincoin">
+      <span slot="headerRight" :class="[coinData.isOptional ? 'icon-star main_color' : 'icon-star-o', 'iconfont']"
+        @click="handleOptional()" />
     </nav-header>
     <!-- <nav-header :title="coinData.tradcoin+'/'+coinData.maincoin"></nav-header> -->
     <div class="main_content quotation_details">
       <ol class="coin_info">
         <li>
-          <h2 :class="[coinInfo.rise>=0?'green_color':'red_color','text_hide']">{{ coinInfo.price }}</h2>
+          <h2 :class="[coinInfo.rise >= 0 ? 'green_color' : 'red_color', 'text_hide']">{{ coinInfo.price }}</h2>
           <p>
-            <em>≈ {{ rateData.symbol }}{{ (coinInfo.price*rateData.price)|mathFloor(2) }}</em>
-            <i v-if="coinInfo.rise>=0" class="green_color">+{{ coinInfo.rise }}%</i>
-            <i v-if="coinInfo.rise<0" class="red_color">{{ coinInfo.rise }}%</i>
+            <em>≈ {{ rateData.symbol }}{{ (coinInfo.price * rateData.price) | mathFloor(2) }}</em>
+            <i v-if="coinInfo.rise >= 0" class="green_color">+{{ coinInfo.rise }}%</i>
+            <i v-if="coinInfo.rise < 0" class="red_color">{{ coinInfo.rise }}%</i>
           </p>
         </li>
         <li>
@@ -22,7 +23,9 @@
         </li>
       </ol>
       <div class="kline_box">
-        <kline :key="klineKey" :coin-type="coinType" ref="klinechart" :default-pair-name="coinData.tradcoin+'/'+coinData.maincoin" :default-name="coinData.tradcoin" :defaultfloat-precision="coinData.price_accuracy" default-period="4" @periodData="changePerioad" />
+        <kline :key="klineKey" :coin-type="coinType" ref="klinechart"
+          :default-pair-name="coinData.tradcoin + '/' + coinData.maincoin" :default-name="coinData.tradcoin"
+          :defaultfloat-precision="coinData.price_accuracy" default-period="4" @periodData="changePerioad" />
       </div>
 
       <van-tabs v-model="active" border line-height="1" :offset-top="headerHeight" sticky>
@@ -37,10 +40,12 @@
               <span>{{ $t('tradeLang.lang7') }}</span>
               <span>{{ $t('tradeLang.lang6') }}</span>
             </li>
-            <li v-for="(item,index) in orderList" v-if="index<30" :key="index">
+            <li v-for="(item, index) in orderList" v-if="index < 30" :key="index">
               <span>{{ item.wdate }}</span>
-              <span v-if="item.type=='buy'" class="green_color">{{ coinType=='trad'?$t('tradeLang.lang23'):$t('tradeLang.lang28') }}</span>
-              <span v-else class="red_color">{{ coinType=='trad'?$t('tradeLang.lang24'):$t('tradeLang.lang29') }}</span>
+              <span v-if="item.type == 'buy'" class="green_color">{{
+                coinType == 'trad' ? $t('tradeLang.lang23') : $t('tradeLang.lang28') }}</span>
+              <span v-else class="red_color">{{ coinType == 'trad' ? $t('tradeLang.lang24') : $t('tradeLang.lang29')
+                }}</span>
               <span>{{ item.price }}</span>
               <span>{{ item.number }}</span>
             </li>
@@ -74,8 +79,12 @@
       </van-tabs>
     </div>
     <div class="btn_box">
-      <van-button class="green_bg" @click="goTrade(1)">{{ coinType=='trad'?$t('tradeLang.lang23'):$t('tradeLang.lang28') }}</van-button>
-      <van-button class="red_bg" @click="goTrade(2)">{{ coinType=='trad'?$t('tradeLang.lang24'):$t('tradeLang.lang29') }}</van-button>
+      <van-button class="green_bg" @click="goTrade(1)">{{ coinType == 'trad' ? $t('tradeLang.lang23') :
+        $t('tradeLang.lang28')
+        }}</van-button>
+      <van-button class="red_bg" @click="goTrade(2)">{{ coinType == 'trad' ? $t('tradeLang.lang24') :
+        $t('tradeLang.lang29')
+        }}</van-button>
     </div>
   </div>
 </template>
@@ -247,6 +256,7 @@ export default {
 
     getCoinDetails() {
       currencyIntroduction({ coin: this.coinData.tradcoin }).then(res => {
+        console.log("getCoinDetails", res)
         this.coinDetails = res.data
       })
     },
@@ -306,108 +316,139 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-.quotation_details{
+.quotation_details {
   bottom: 60px;
 }
-.icon-star-o{
+
+.icon-star-o {
   font-size: 20px;
   color: var(--fontColor);
 }
-.icon-star{
+
+.icon-star {
   font-size: 20px
 }
-.coin_info{
+
+.coin_info {
   height: 74px;
   display: flex;
   justify-content: space-between;
   padding: 10px 15px 5px;
-  li{
+
+  li {
     line-height: 20px;
     font-size: 12px;
-    h2{
+
+    h2 {
       line-height: 40px;
       font-size: 20px;
     }
-    em{
+
+    em {
       color: $subFontColor;
     }
-    label{
+
+    label {
       display: block;
       text-align: right;
     }
-    i{
+
+    i {
       margin-left: 10px;
     }
-    span{
+
+    span {
       color: $subFontColor;
       margin-right: 10px;
     }
   }
 }
 
-.coin_info_top{
+.coin_info_top {
   padding-top: 10px;
   padding-left: 15px;
-  li{
+
+  li {
     line-height: 40px;
     padding-right: 15px;
-    span{
+
+    span {
       color: $subFontColor;
     }
-    div{
+
+    div {
       line-height: 22px;
       padding-bottom: 10px;
     }
-    em{color: $subFontColor;}
+
+    em {
+      color: $subFontColor;
+    }
   }
-  .flex_between{
+
+  .flex_between {
     font-size: 12px;
   }
 }
-.coin_info_bottom{
+
+.coin_info_bottom {
   padding: 10px 15px;
   color: $subFontColor;
-  label{
+
+  label {
     display: block;
     line-height: 20px;
   }
-  p{
+
+  p {
     color: $subFontColor;
     font-size: 12px;
     line-height: 20px;
   }
-  em{color: $subFontColor;}
+
+  em {
+    color: $subFontColor;
+  }
 }
-.kline_box{
+
+.kline_box {
   background-color: $bgColor;
   padding: 5px 0;
 }
-.deal_list{
+
+.deal_list {
   padding: 10px 15px;
-  li{
+
+  li {
     display: flex;
     line-height: 36px;
     font-size: 13px;
-    &:first-child{
+
+    &:first-child {
       font-size: 12px;
       color: $subFontColor;
     }
-    span{
+
+    span {
       flex: 1;
       color: $subFontColor;
-      &:nth-child(2){
+
+      &:nth-child(2) {
         text-align: center;
       }
-      &:nth-child(3){
+
+      &:nth-child(3) {
         text-align: center;
       }
-      &:nth-child(4){
+
+      &:nth-child(4) {
         text-align: right;
       }
     }
   }
 }
-.btn_box{
+
+.btn_box {
   background-color: $blockColor;
   padding: 10px 15px;
   position: fixed;
@@ -415,7 +456,8 @@ export default {
   bottom: 0;
   display: flex;
   align-items: center;
-  button{
+
+  button {
     flex: 1;
     height: 40px;
     line-height: 40px;
@@ -424,34 +466,40 @@ export default {
     font-weight: bold;
     font-size: 15px;
     border: none;
-    &:nth-child(2){
+
+    &:nth-child(2) {
       margin-left: 15px;
     }
   }
 }
 
-.top_order{
+.top_order {
   background: $blockColor;
-  li{
+
+  li {
     display: flex;
     align-items: center;
     padding: 0 15px;
     line-height: 28px;
-    span{
+
+    span {
       flex: 1;
       max-width: 25%;
       font-size: 12px;
       color: $subFontColor;
       padding: 10px 0 2px;
-      &:nth-child(4){
+
+      &:nth-child(4) {
         text-align: right;
       }
     }
-    p{
+
+    p {
       flex: 1;
       max-width: 25%;
       font-size: 13px;
-      &:nth-child(4){
+
+      &:nth-child(4) {
         text-align: right;
       }
     }

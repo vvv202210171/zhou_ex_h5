@@ -25,7 +25,7 @@
       <ol v-for="item in minerList" :key="item.id" class="lock_box" @click="goConfirm(item)">
         <li class="flex_between">
           <h3 class="flex_center">
-            <van-image width="80px" height="80px" :src="`${baseImgUrl}/${item.id}`" fit="cover" alt="Example Image"
+            <van-image width="80px" height="80px" :src="`${baseImgUrl}/kji`" fit="cover" alt="Example Image"
               style="margin-right: 6px" />{{ item.name || "--" }}
           </h3>
           <i class="iconfont icon-arrow-right main_color" />
@@ -149,11 +149,32 @@ export default {
 
 .lock_box {
   margin: 5px 15px 15px;
-  background: $blockColor;
-  padding: 0 12px;
-  border-radius: 4px;
+  padding: 0 24px;
+  border: 1px solid #464952;
+  border-radius: 10px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px; // 与父元素一致的圆角
+    padding: 1px; // 边框宽度
+    background: linear-gradient(90deg, #464952, #cccccca6); // 渐变效果
+    -webkit-mask: padding-box; // 避免背景覆盖内容
+    mask: padding-box;
+    z-index: -1; // 放到背景层
+  }
+
+  /* 渐变背景 */
 
   li {
+    /* 内容背景色 */
+
+    /* 内边距 */
     &:first-child {
       padding: 12px 0 10px;
       border-bottom: 1px solid rgba($lineColor, 0.5);
