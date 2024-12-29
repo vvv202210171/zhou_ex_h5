@@ -426,6 +426,9 @@ export default {
       justify-content: space-between;
       display: flex;
       background-image: url(../../assets/img/bbai/main.gif);
+      background-repeat: no-repeat;
+      background-size: 53% 100%;
+      background-position: right;
 
       .bg-top-left {
         display: flex;
