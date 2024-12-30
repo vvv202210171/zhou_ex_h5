@@ -96,6 +96,6 @@ export default {
   lang87: "セキュリティセンター",
   lang88: "BBAIが新登場",
   lang89: "マイニングセンター",
-  lang90: "財務管理",
+  lang90: "WEB3.0",
   lang91: "予備お金センター",
 };

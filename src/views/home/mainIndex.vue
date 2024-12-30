@@ -81,7 +81,7 @@
               </div>
               <div class="lock-right-bt">
 
-                <p class="lock-right-bt-text">
+                <p class="lock-right-bt-text" @click="clickWeb3('lockMining')">
                   <span>{{ $t("homeLang.lang90") }}</span>
                   <em>{{ $t("homeLang.lang91") }}</em>
                 </p>
@@ -176,6 +176,7 @@
 import areaCoinList from "./components/areaCoinList.vue";
 import { mapState } from "vuex";
 import { tradeOverview, tradeSymbols } from "@api/exchange";
+import { Notify } from "vant";
 export default {
   components: { areaCoinList },
   data() {
@@ -248,6 +249,9 @@ export default {
 
   methods: {
     //app读取banner图需要拼接服务器地址
+    clickWeb3() {
+      Notify(this.$t("commonLang.disableLock"));
+    },
     getBannerImgUrl(url) {
       return `${this.baseImgUrl}/${url}`;
     },
