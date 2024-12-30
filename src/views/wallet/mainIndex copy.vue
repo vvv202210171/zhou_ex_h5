@@ -2,9 +2,13 @@
   <div class="balance block_bg" @scroll="scrollEvent">
     <div ref="balancePlaceholder" class="placeholder_box" />
     <div ref="balanceTop" class="balance_top">
-      <!-- <div class="blance_top_box">
+      <div class="blance_top_box">
         <div class="top_title flex_between">
           <p>{{ $t('tradeLang.lang34') }}(USDT)</p>
+          <!-- <span @click="hideAssets=!hideAssets">
+            <img v-show="!hideAssets" src="@img/wallet/eye_open.png" alt="">
+            <img v-show="hideAssets" src="@img/wallet/eye_close.png" alt="">
+          </span> -->
         </div>
         <h2 v-show="hideAssets">****.****</h2>
         <label v-show="hideAssets">≈ $****.**</label>
@@ -22,45 +26,22 @@
           <span>{{ $t('tradeLang.lang280') }}(USDT)</span>
           <h3>{{ accountEarning }}</h3>
         </div>
-      </div> -->
-      <div class="flex_between assets">
-        <div>
-          <p>{{ $t('tradeLang.lang34') }}(USDT)</p>
-          <div>
-            <h1 v-show="!hideAssets" class="">{{ assetsCount.usdt || '0.0000' }}</h1>
-            <label v-show="!hideAssets">≈ {{ rateData.symbol }}{{ (assetsCount.usdt * rateData.price) | mathFloor(2)
-              }}</label>
-          </div>
-
-        </div>
-        <div>
-          <div>
-            <span>{{ $t('tradeLang.lang279') }}(USDT)</span>
-            <h3>{{ todayEarning }}</h3>
-          </div>
-
-          <div>
-            <span>{{ $t('tradeLang.lang280') }}(USDT)</span>
-            <h3>{{ accountEarning }}</h3>
-          </div>
-        </div>
       </div>
-
       <ol class="balance_menu flex">
         <li @click="rechargeChannelInfo">
-          <img src="@img/wallet/cz.png" alt="">
+          <img :src="require(`@img/wallet/menu${this.them}_1.png`)" alt="">
           <p>{{ $t('tradeLang.lang35') }}</p>
         </li>
         <li @click="pushPath('/coinWithdraw')">
-          <img :src="require(`@img/wallet/tx.png`)" alt="">
+          <img :src="require(`@img/wallet/menu${this.them}_2.png`)" alt="">
           <p>{{ $t('tradeLang.lang36') }}</p>
         </li>
         <li @click="pushPath('/coinTransfer')">
-          <img :src="require(`@img/wallet/hz.png`)" alt="">
+          <img :src="require(`@img/wallet/menu${this.them}_3.png`)" alt="">
           <p>{{ $t('tradeLang.lang37') }}</p>
         </li>
         <li @click="pushPath('/coinConvert')">
-          <img :src="require(`@img/wallet/dh.png`)" alt="">
+          <img :src="require(`@img/wallet/menu${this.them}_4.png`)" alt="">
           <p>{{ $t('tradeLang.lang38') }}</p>
         </li>
       </ol>
@@ -171,9 +152,6 @@ export default {
 .balance {
   bottom: 50px;
   height: auto;
-  background: url(../../assets/img/wallet/bg-balance.png);
-  background-size: contain;
-  background-repeat: round;
 
   .placeholder_box {
     position: fixed;
@@ -184,7 +162,7 @@ export default {
 }
 
 .balance_top {
-
+  background-color: $mainColor;
   padding-bottom: 20px;
 
   .blance_top_box {
@@ -219,6 +197,8 @@ export default {
 }
 
 .balance_menu {
+  background-color: var(--mainIndex-balanceMenu-bgColor);
+  color: var(--mainIndex-balanceMenu-color);
   border-radius: 10px;
   margin: 10px 10px;
 
@@ -230,8 +210,8 @@ export default {
     font-size: 12px;
 
     img {
-      width: 45px;
-      height: 45px;
+      width: 32px;
+      height: 32px;
       display: block;
       margin: 0 auto 8px;
     }
@@ -245,21 +225,6 @@ export default {
   padding-top: 10px;
   border-radius: 20px 20px 0 0;
   overflow: hidden;
-}
-
-.assets {
-  margin: 32px 18px;
-  color: var(--subFontColor);
-
-  h1 {
-    margin: 18px 5px;
-    color: var(--fontColor);
-  }
-
-  h3 {
-    color: var(--fontColor);
-    margin: 6px 0px;
-  }
 }
 
 .earn_balance {
