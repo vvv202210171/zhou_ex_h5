@@ -39,7 +39,7 @@
           </div>
           <div>
             <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>
-            <span>{{ item.minNumber }} - {{ item.maxNumber }}</span>
+            <span>{{ item.number }} </span>
           </div>
           <div v-if="isDisable(item)">
             <span style="color: red">{{ $t("commonLang.disableLock") }}</span>
