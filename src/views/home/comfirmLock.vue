@@ -32,7 +32,7 @@
       <div class="submit_btn">
         <van-button type="primary" size="large" @click="showPayPopup()">{{
           $t("commonLang.lang9")
-        }}</van-button>
+          }}</van-button>
       </div>
     </div>
 
@@ -73,19 +73,9 @@ export default {
     },
 
     showPayPopup() {
-      if (!this.$utils.isCorrectFigure(this.number)) {
-        Toast(this.$t("homeLang.lang65"));
-        return;
-      }
+
       if (this.number > Number(this.usable)) {
         Toast(this.$t("homeLang.lang66"));
-        return;
-      }
-      if (
-        this.number < Number(this.minerData.minNumber) ||
-        this.number > Number(this.minerData.maxNumber)
-      ) {
-        Toast(this.$t("homeLang.lang67"));
         return;
       }
       this.payPass = "";
