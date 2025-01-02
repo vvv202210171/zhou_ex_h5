@@ -102,9 +102,9 @@ export default {
         this.isload = true;
         if (res.data) {
           const ret = res.data
-          for (const node of ret) {
-            node.name = this.$t(`commonLang.${node.logo}`)
-          }
+          // for (const node of ret) {
+          //   node.name = this.$t(`commonLang.${node.logo}`)
+          // }
         }
         this.nodes = res.data
       });
