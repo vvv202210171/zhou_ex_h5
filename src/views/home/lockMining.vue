@@ -38,7 +38,7 @@
             <span>{{ $t("commonLang.zfbz") }}</span>
           </div>
           <div>
-            <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>
+            <em>24小时</em>
             <span>{{ item.number }} </span>
           </div>
           <div v-if="isDisable(item)">

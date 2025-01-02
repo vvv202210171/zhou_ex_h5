@@ -7,66 +7,27 @@
           <h3>{{ minerData.name || "--" }}</h3>
         </li>
         <li class="flex_between">
-          <span>{{ $t("homeLang.lang55") }}</span>
+          <span>支付数目</span>
           <label class="flex main_color">
-            <h4>{{ minerData.gas }}</h4>
-            <em>%</em>
+            <h4>{{ minerData.number }}</h4>
           </label>
         </li>
         <li class="flex_between">
           <span>{{ $t("homeLang.lang56") }}</span>
-          <p>{{ minerData.cycle }}</p>
+          <p>24小时</p>
+        </li>
+
+
+        <li class="flex_between">
+          <span>BBAI</span>
+          <p>{{ minerData.BBAI }}</p>
         </li>
         <li class="flex_between">
-          <span>{{ $t("homeLang.lang57") }}(USDT)</span>
-          <p>{{ minerData.minNumber }} - {{ minerData.maxNumber }}</p>
-        </li>
-        <li class="flex_between">
-          <span>{{ $t("homeLang.lang58") }}</span>
-          <p>{{ $t("homeLang.lang59") }}</p>
-        </li>
-        <li class="flex_between">
-          <span>{{ $t("homeLang.lang60") }}</span>
-          <p>{{ $t("homeLang.lang61") }}</p>
-        </li>
-        <li class="flex_between">
-          <span>{{ $t("homeLang.lang62") }}</span>
-          <p>{{ minerData.returnGas }}%</p>
+          <span>USDT</span>
+          <p>{{ minerData.USDT }}</p>
         </li>
       </ol>
 
-      <ol class="input_box">
-        <li>
-          <p>{{ $t("homeLang.lang60") }}</p>
-          <div class="flex">
-            <input v-model.number="number" v-input-line type="number" :placeholder="$t('homeLang.lang63')" />
-            <em>USDT</em>
-            <h4 class="main_color" @click="number = usable">
-              {{ $t("tradeLang.lang67") }}
-            </h4>
-          </div>
-          <label class="flex_between">
-            <span><em>{{ $t("tradeLang.lang42") }}</em> {{ usable }} USDT</span>
-          </label>
-        </li>
-        <li>
-          <p class="sub_font">{{ $t("homeLang.lang64") }}(USDT)</p>
-          <h2 v-if="number">
-            {{
-              ((number * minerData.cycle * minerData.gas) / 10000)
-              | mathFloor(2)
-            }}
-          </h2>
-          <h2 v-if="!number">0.00</h2>
-        </li>
-        <li>
-          <p class="sub_font">{{ $t("homeLang.lang76") }}(USDT)</p>
-          <h2 v-if="number">
-            {{ ((number * minerData.gas) / 10000) | mathFloor(2) }}
-          </h2>
-          <h2 v-if="!number">0.00</h2>
-        </li>
-      </ol>
 
       <div class="submit_btn">
         <van-button type="primary" size="large" @click="showPayPopup()">{{

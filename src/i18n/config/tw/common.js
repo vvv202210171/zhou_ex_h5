@@ -36,7 +36,7 @@ export default {
   lang35: "綁定銀行卡",
   disableLock: "该功能尚未开放，尽情期待",
   rechargeJietu: "充值截图",
-  lang36: "BBAI工超算书点",
+  lang36: "BBAI超算节点",
   lang37: "已釋放算力",
   lang38: "挖礦",
   lang39: "分享",
@@ -61,5 +61,5 @@ export default {
   pass: "透過",
   reject: "拒絕",
   gmjl: "購買記錄",
-  zfbz: "支付幣種",
+  zfbz: "支付主幣種",
 };
