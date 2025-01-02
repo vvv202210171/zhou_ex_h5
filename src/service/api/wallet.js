@@ -10,7 +10,13 @@ export const getUdunCoinAddress = (data) => {
 const showLoading = () => {
   store.dispatch("common/showLoading", true);
 };
-
+export const loadSupportCoins = () => {
+  return fetch(`${baseURL}/account/trans_coins`);
+};
+export const trans = (data) => {
+  showLoading();
+  return post(`${baseURL}/account/trans`, data);
+};
 export const selectRate = (data) => {
   return fetch(`${baseURL}/account/getExchangeRateByCoin`, data);
 };

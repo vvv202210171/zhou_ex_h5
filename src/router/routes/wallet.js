@@ -24,6 +24,12 @@ export default [
     meta: { level: 3, requiresAuth: true },
   },
   {
+    path: "/trans",
+    name: "trans",
+    component: () => import("@/views/wallet/trans"),
+    meta: { level: 3, requiresAuth: true },
+  },
+  {
     path: "/coinConvert",
     name: "coinConvert",
     component: () => import("@/views/wallet/coinConvert"),

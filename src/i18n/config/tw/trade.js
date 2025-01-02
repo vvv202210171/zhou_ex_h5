@@ -285,4 +285,5 @@ export default {
   lang278: "請輸入充幣訂單",
   lang279: "今日收益",
   lang280: "總收益",
+  zz: "轉帳",
 };

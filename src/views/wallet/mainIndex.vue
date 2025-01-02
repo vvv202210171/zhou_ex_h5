@@ -63,6 +63,10 @@
           <img :src="require(`@img/wallet/dh.png`)" alt="">
           <p>{{ $t('tradeLang.lang38') }}</p>
         </li>
+        <li @click="pushPath('/trans')">
+          <img :src="require(`@img/wallet/dh.png`)" alt="">
+          <p>{{ $t('tradeLang.zz') }}</p>
+        </li>
       </ol>
     </div>
     <div class="balance_bottom">
