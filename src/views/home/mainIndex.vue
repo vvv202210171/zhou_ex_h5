@@ -218,7 +218,7 @@ export default {
       console.log("marketSocketData", this.marketSocketData);
       if (this.marketSocketData && this.marketSocketData.symbols) {
         const price = this.marketSocketData.symbols.find(v => v.tradcoin == "BBAI");
-        return parseFloat(price ? price.price : 0).toFixed(3);
+        return parseFloat(price ? price.price : 0).toFixed(6);
       }
       return 0;
     }
