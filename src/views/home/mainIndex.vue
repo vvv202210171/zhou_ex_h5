@@ -81,7 +81,7 @@
               </div>
               <div class="lock-right-bt">
 
-                <p class="lock-right-bt-text" @click="clickWeb3('lockMining')">
+                <p class="lock-right-bt-text" @click="clickweb3('lockMining')">
                   <span>{{ $t("homeLang.lang90") }}</span>
                   <em>{{ $t("homeLang.lang91") }}</em>
                 </p>
@@ -249,7 +249,7 @@ export default {
 
   methods: {
     //app读取banner图需要拼接服务器地址
-    clickWeb3() {
+    clickweb3() {
       Notify(this.$t("commonLang.disableLock"));
     },
     getBannerImgUrl(url) {

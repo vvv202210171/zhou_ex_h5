@@ -95,6 +95,6 @@ export default {
   lang87: "安全中心",
   lang88: "BBAI全新上线",
   lang89: "挖矿中心",
-  lang90: "WEB3.0",
+  lang90: "web3.0",
   lang91: "生态建设",
 };
