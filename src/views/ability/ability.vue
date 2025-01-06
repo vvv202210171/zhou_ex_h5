@@ -44,7 +44,7 @@
         <li class="flex_between">
           <h3 class="flex_center">
             <van-image width="80px" height="80px" :src="`${baseImgUrl}/${item.logo}`" fit="cover" alt="Example Image"
-              style="margin-right: 6px" />{{ item.name || "--" }}
+              style="margin-right: 6px" />{{ item.name || "--" }}（<em class="red_color">{{ item.poolAbility }}</em> ）
           </h3>
           <i class="iconfont icon-arrow-right main_color" />
         </li>
@@ -60,6 +60,7 @@
             <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>
             <span style="color: green">{{ item.price }}USDT </span>
           </div>
+
           <div v-if="isDisable(item)">
             <span style="color: red">{{ $t("commonLang.disableLock") }}</span>
           </div>
