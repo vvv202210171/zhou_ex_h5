@@ -7,10 +7,15 @@
       <div class="lock_top">
         <p>{{ $t('commonLang.lang37') }}</p>
         <h2>
-          {{ nodeInfo.releaseAbility || "0.00"
-          }}<span style="color: green; font-size: 14px; margin-left: 5px" @click="withDrawAbility">{{
+          <span @click="pushPath('/abilityRecord')"> {{ nodeInfo.releaseAbility || "0.00"
+            }}</span>
+
+          <span style="font-size: 14px; margin-left: 5px" @click="withDrawAbility" class="green_color">{{
             $t('commonLang.lang44') }}</span>
-          <i class="iconfont icon-arrow-right main_color" @click="pushPath('/withdrawRecord')" style="float: right;" />
+          <div style="float: right;" class="flex">
+            <i class="iconfont icon-arrow-right main_color" @click="pushPath('/withdrawRecord')" />
+          </div>
+
         </h2>
         <ol class="flex">
           <li>
@@ -58,7 +63,7 @@
           </div>
           <div>
             <em>{{ item.cycle }}{{ $t("homeLang.lang53") }}</em>
-            <span style="color: green">{{ item.price }}USDT </span>
+            <span class="green_color">{{ item.price }}USDT </span>
           </div>
 
           <div v-if="isDisable(item)">

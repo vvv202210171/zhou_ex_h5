@@ -20,7 +20,7 @@
 
         <li class="flex_between">
           <span>BBAI</span>
-          <p>{{ minerData.BBAI }}</p>
+          <p>~{{ minerData.BBAI }}</p>
         </li>
         <li class="flex_between">
           <span>USDT</span>
@@ -32,7 +32,7 @@
       <div class="submit_btn">
         <van-button type="primary" size="large" @click="showPayPopup()">{{
           $t("commonLang.lang9")
-          }}</van-button>
+        }}</van-button>
       </div>
     </div>
 

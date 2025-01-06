@@ -29,7 +29,12 @@ export default [
       component: () => import("@/views/ability/withdrawRecord"),
       meta: { level: 4, requiresAuth: true },
     },
-    
+    {
+      path: "/abilityRecord",
+      name: "abilityRecord",
+      component: () => import("@/views/ability/abilityRecord"),
+      meta: { level: 4, requiresAuth: true },
+    },
    
   ];
   

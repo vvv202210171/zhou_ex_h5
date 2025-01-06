@@ -27,3 +27,6 @@ export const bbaiWithdraw = (data) => {
 export const withdrawLog = () => {
   return fetch(`${baseURL}/node/withdraw_record`);
 };
+export const abilityLog = () => {
+  return fetch(`${baseURL}/node/ability_record`);
+};
