@@ -6,42 +6,57 @@
       <div class="coin_recharge_box">
         <div class="coin_name flex" @click="coinSheet = true">
           <van-image :src="`${baseImgUrl}/${coinData.symbol}`" />
-          <h3>{{ coinData.symbol }}</h3>
+          <h3>{{ coinData.name }}</h3>
           <label class="flex">
-            <span>{{ $t('tradeLang.lang58') }}</span>
+            <span>{{ $t("tradeLang.lang58") }}</span>
             <i class="iconfont icon-arrow-down"></i>
           </label>
         </div>
-        <p class="qr_box"><img :src="imgQr" alt=""></p>
+        <div class="chain_box">
+          <p>{{ $t("tradeLang.lang59") }}</p>
+          <ol>
+            <li v-for="(item, index) in chainNames" :key="index"
+              :class="[{ tab_selected: addressData.symbol == item.mainSymbol }]" @click="changeChain(item)">
+              {{ item.mainSymbol }}
+            </li>
+          </ol>
+        </div>
+        <p class="qr_box"><img :src="imgQr" alt="" /></p>
         <ul class="input_box">
           <li>
-            <span>{{ $t('tradeLang.lang60') }}</span>
-            <input type="text" :value="addressData.address" readonly>
+            <span>{{ $t("tradeLang.lang60") }}</span>
+            <input type="text" :value="addressData.address" readonly />
           </li>
-
         </ul>
         <div class="submit_btn">
           <van-button type="primary" size="large" @click="$utils.promote()" :aria-label="addressData.address"
             :disabled="!addressData.address" class="copy_btn">
-            {{ $t('commonLang.lang6') }}</van-button>
+            {{ $t("commonLang.lang6") }}</van-button>
         </div>
       </div>
-      <van-action-sheet v-model="coinSheet" :actions="coinList" @select="onSelect"
+      <van-action-sheet v-model="coinSheet" :actions="coinDatas" @select="onSelect"
         :cancel-text="$t('commonLang.lang1')" />
       <div class="tip_box">
         <!-- <pre v-html="coinData.intitle"></pre> -->
-        <p>{{ $t('tradeLang.lang62', { coin: coinData.coin }) }}</p>
-        <p>{{ $t('tradeLang.lang63', { coin: coinData.coin, low: coinData.oneinlow }) }}</p>
+        <p>{{ $t("tradeLang.lang62", { coin: coinData.coin }) }}</p>
+        <p>
+          {{
+            $t("tradeLang.lang63", {
+              coin: coinData.coin,
+              low: coinData.oneinlow,
+            })
+          }}
+        </p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import qrcode from "qrcode";
-import { getUdunCoinAddress, loadUdunSupportCoinList } from "@api/wallet"
-import rechargeDialog from "./components/rechargeDialog"
+import { mapState } from "vuex";
+import { getUdunCoinAddress, loadUdunSupportCoinList } from "@api/wallet";
+import rechargeDialog from "./components/rechargeDialog";
 export default {
   components: { rechargeDialog },
   data() {
@@ -49,22 +64,25 @@ export default {
       coinSheet: false,
       coinData: {},
       addressData: {},
-      imgQr: '',
-      tipText: '',
+      imgQr: "",
+      tipText: "",
       orderPopup: false,
       model: {
-        number: ''
+        number: "",
       },
       coinList: [],
     };
   },
   computed: {
-    coinImgUrl() {
-      console.log(this.coinData);
-      return '';
-      //      return require(`@img/coin/${this.coinData.symbol}.png`).default;
+    ...mapState({
+      baseImgUrl: (state) => state.common.baseImgUrl,
+    }),
+    chainNames() {
+      return [this.coinData];
     },
-
+    coinDatas() {
+      return this.coinList.filter((v) => v.tokenStatus == 1);
+    },
   },
 
   created() {
@@ -74,11 +92,11 @@ export default {
   methods: {
     async loadUdunCoinList() {
       const res = await loadUdunSupportCoinList();
-      this.coinList = res.data
+      this.coinList = res.data;
       if (!this.coinList || this.coinList.length === 0) {
-        return
+        return;
       }
-      this.initData(res.data)
+      this.initData(res.data);
     },
     initData(data) {
       if (data && data.length) {
@@ -88,8 +106,8 @@ export default {
     },
     onSelect(data) {
       this.coinSheet = false;
-      console.log("data:", data)
-      this.coinData = data
+      console.log("data:", data);
+      this.coinData = data;
       this.getAddress();
     },
     getAddress() {
@@ -99,22 +117,27 @@ export default {
         coin: this.coinData.symbol,
         mainCoinType: this.coinData.mainCoinType,
         symbol: this.coinData.symbol,
-        blockname: "TRC",
+        blockname: this.coinData.mainSymbol,
       };
-      getUdunCoinAddress(data).then(res => {
+      getUdunCoinAddress(data).then((res) => {
         this.addressData = { address: res.data };
         this.createQr();
-      })
+      });
     },
     createQr() {
-      var opts = { errorCorrectionLevel: "H", type: "image/png", rendererOpts: { quality: 0.3 } };
+      console.log("addressData", this.addressData);
+      var opts = {
+        errorCorrectionLevel: "H",
+        type: "image/png",
+        rendererOpts: { quality: 0.3 },
+      };
       qrcode.toDataURL(this.addressData.address, opts, (err, url) => {
         if (err) throw err;
         this.imgQr = url;
       });
     },
   },
-}
+};
 </script>
 <style lang='scss' scoped>
 ::v-deep .van-nav-bar {
@@ -173,7 +196,7 @@ export default {
       line-height: 24px;
       height: 24px;
       color: $subFontColor;
-      border: 1Px solid $lineColor;
+      border: 1px solid $lineColor;
       border-radius: 3px;
       padding: 0 10px;
       margin-right: 10px;
@@ -182,7 +205,7 @@ export default {
   }
 
   .tab_selected {
-    border: 1Px solid rgba($mainColor, .3);
+    border: 1px solid rgba($mainColor, 0.3);
     background-color: $mainColor;
     color: $bgColor;
   }
@@ -254,7 +277,7 @@ export default {
         left: 92px;
         bottom: 0;
         width: calc(100% - 104px);
-        height: 1Px;
+        height: 1px;
         background-color: $lineColor;
       }
 
