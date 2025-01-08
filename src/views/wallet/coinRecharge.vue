@@ -15,12 +15,8 @@
         <div class="chain_box">
           <p>{{ $t("tradeLang.lang59") }}</p>
           <ol>
-            <li
-              v-for="(item, index) in chainArr"
-              :key="index"
-              :class="[{ tab_selected: chainName == item.symbol }]"
-              @click="changeChain(item)"
-            >
+            <li v-for="(item, index) in chainArr" :key="index" :class="[{ tab_selected: chainName == item.symbol }]"
+              @click="changeChain(item)">
               {{ item.symbol }}
             </li>
           </ol>
@@ -37,58 +33,32 @@
           <li>
             <span>{{ $t("tradeLang.lang60") }}</span>
             <input type="text" :value="addressData.address" readonly />
-            <button
-              class="copy_btn"
-              :aria-label="addressData.address"
-              @click="$utils.promote()"
-            >
+            <button class="copy_btn" :aria-label="addressData.address" @click="$utils.promote()">
               {{ $t("commonLang.lang6") }}
             </button>
           </li>
           <li>
             <span>{{ $t("tradeLang.lang275") }}</span>
-            <input
-              type="text"
-              v-model="model.number"
-              :placeholder="$t('tradeLang.lang276')"
-            />
+            <input type="text" v-model="model.number" :placeholder="$t('tradeLang.lang276')" />
             <small class="sub_font">{{ coinData.coin }}</small>
           </li>
           <li>
             <span>{{ $t("commonLang.rechargeJietu") }}</span>
-            <van-uploader
-              upload-icon="photo"
-              v-model="imgArr"
-              :max-count="1"
-              multiple
-              :max-size="5 * 1024 * 1024"
-              accept="image/*"
-              @oversize="onOversize"
-            />
+            <van-uploader upload-icon="photo" v-model="imgArr" :max-count="1" multiple :max-size="5 * 1024 * 1024"
+              accept="image/*" @oversize="onOversize" />
           </li>
         </ul>
         <div class="submit_btn">
-          <van-button
-            type="primary"
-            size="large"
-            @click="confirmAction"
-            :disabled="
-              !model.number ||
-              imgArr.length != 1 ||
-              !addressData.address ||
-              Number(model.number) < Number(coinData.oneinlow)
-            "
-          >
-            {{ $t("commonLang.lang2") }}</van-button
-          >
+          <van-button type="primary" size="large" @click="confirmAction" :disabled="!model.number ||
+            imgArr.length != 1 ||
+            !addressData.address ||
+            Number(model.number) < Number(coinData.oneinlow)
+            ">
+            {{ $t("commonLang.lang2") }}</van-button>
         </div>
       </div>
-      <van-action-sheet
-        v-model="coinSheet"
-        :actions="coinList"
-        @select="onSelect"
-        :cancel-text="$t('commonLang.lang1')"
-      />
+      <van-action-sheet v-model="coinSheet" :actions="coinList" @select="onSelect"
+        :cancel-text="$t('commonLang.lang1')" />
       <div class="tip_box">
         <!-- <pre v-html="coinData.intitle"></pre> -->
         <p>{{ $t("tradeLang.lang62", { coin: coinData.coin }) }}</p>
@@ -116,7 +86,7 @@
 
 <script>
 import qrcode from "qrcode";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { getCoinAddress, rgaddFiatPayOrder } from "@api/wallet";
 import rechargeDialog from "./components/rechargeDialog";
 import { Toast } from "vant";
@@ -143,6 +113,8 @@ export default {
   computed: {
     ...mapGetters({
       coinList: "rechargeCoinList",
+    }),
+    ...mapState({
       baseImgUrl: (state) => state.common.baseImgUrl,
     }),
   },
@@ -155,7 +127,7 @@ export default {
     this.$store.dispatch("wallet/getRechargeCoins");
     this.initData(this.coinList);
   },
-  mounted() {},
+  mounted() { },
   methods: {
     initData(data) {
       if (data && data.length) {
