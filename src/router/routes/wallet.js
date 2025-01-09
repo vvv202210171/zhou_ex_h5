@@ -30,6 +30,12 @@ export default [
     meta: { level: 3, requiresAuth: true },
   },
   {
+    path: "/transRecord",
+    name: "transRecord",
+    component: () => import("@/views/wallet/transRecord"),
+    meta: { level: 3, requiresAuth: true },
+  },
+  {
     path: "/coinConvert",
     name: "coinConvert",
     component: () => import("@/views/wallet/coinConvert"),

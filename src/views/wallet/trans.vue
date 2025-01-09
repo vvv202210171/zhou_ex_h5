@@ -1,6 +1,9 @@
 <template>
   <div>
-    <nav-header :title="$t('tradeLang.zz')" />
+    <nav-header :title="$t('tradeLang.zz')">
+      <span slot="headerRight" class="right_img"><img src="@img/home/icon_record.png" alt=""
+          @click="pushPath('transRecord')" /></span>
+    </nav-header>
     <div class="main_content">
       <div class="transfer_box">
         <div class="coin_name">
@@ -14,15 +17,15 @@
           </div>
         </div>
         <div class="num_box">
-          <p>{{ $t("dkzh") }}</p>
+          <p>{{ $t("tradeLang.dkzh") }}</p>
           <div class="flex">
             <input v-model="receive" v-input-line type="number" :placeholder="$t('tradeLang.jyid')">
           </div>
         </div>
         <div class="num_box">
-          <p>{{ $t("jymm") }}</p>
+          <p>{{ $t("tradeLang.jymm") }}</p>
           <div class="flex">
-            <input v-model="tradPass" v-input-line type="password" :placeholder="$t(' tradeLang.lang71')">
+            <input v-model="tradPass" v-input-line type="password" :placeholder="$t('tradeLang.lang71')">
           </div>
         </div>
         <div class="num_box">
@@ -109,7 +112,9 @@ export default {
       this.coinData = this.futuresCoinList[0];
       this.getBalance()
     },
-
+    toRecord() {
+      this.pushPath('transRecord')
+    },
     onSelectAssets(data) {
       if (data.type != this.assetsType) {
         if (this.transferOut) {
@@ -159,7 +164,7 @@ export default {
       }
       const ret = await trans({ number: this.number, receive: this.receive, tradPass: this.tradPass, tradcoin: this.coinData.name });
       if (ret.code == 200) {
-        this.getBalance();
+        this.toRecord();
       }
 
     }
@@ -168,6 +173,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.right_img {
+  width: 20px;
+}
+
 .transfer_top {
   margin: 8px 15px;
   background-color: var(--main-box-bgColor);
