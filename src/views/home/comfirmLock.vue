@@ -7,14 +7,14 @@
           <h3>{{ minerData.name || "--" }}</h3>
         </li>
         <li class="flex_between">
-          <span>支付数目</span>
+          <span>{{ $t('commonLang.zfsm') }}</span>
           <label class="flex main_color">
             <h4>{{ minerData.number }}</h4>
           </label>
         </li>
         <li class="flex_between">
           <span>{{ $t("homeLang.lang56") }}</span>
-          <p>24小时</p>
+          <p>{{ $t('commonLang.h24') }}</p>
         </li>
 
 

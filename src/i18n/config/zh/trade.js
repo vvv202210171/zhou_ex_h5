@@ -325,4 +325,7 @@ export default {
   lang279: "今日收益",
   lang280: "總收益",
   zz: "转账",
+  dkzh: "到款账户",
+  jymm: "交易密码",
+  jyid: "请输入到款账户ID",
 };

@@ -14,15 +14,15 @@
           </div>
         </div>
         <div class="num_box">
-          <p>到款账户</p>
+          <p>{{ $t("dkzh") }}</p>
           <div class="flex">
-            <input v-model="receive" v-input-line type="number" placeholder="请输入到款账户ID">
+            <input v-model="receive" v-input-line type="number" :placeholder="$t('tradeLang.jyid')">
           </div>
         </div>
         <div class="num_box">
-          <p>交易密码</p>
+          <p>{{ $t("jymm") }}</p>
           <div class="flex">
-            <input v-model="tradPass" v-input-line type="password" :placeholder="$t('tradeLang.lang71')">
+            <input v-model="tradPass" v-input-line type="password" :placeholder="$t(' tradeLang.lang71')">
           </div>
         </div>
         <div class="num_box">

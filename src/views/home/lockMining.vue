@@ -38,7 +38,7 @@
             <span>{{ $t("commonLang.zfbz") }}</span>
           </div>
           <div>
-            <em>24小时</em>
+            <em>{{ $t('commonLang.h24') }}</em>
             <span>{{ item.number }} </span>
           </div>
           <div v-if="isDisable(item)">
