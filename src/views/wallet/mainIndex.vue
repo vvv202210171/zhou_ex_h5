@@ -148,7 +148,7 @@ export default {
     rechargeChannelInfo() {
       rechargeChannel().then(res => {
         if (res.data == 'SM') {
-          this.pushPath('/coinRecharge');
+          this.pushPath('/coinRechargeUdun');
         }
         else {
           Dialog.alert({

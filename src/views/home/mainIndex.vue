@@ -47,7 +47,7 @@
           </div>
           <div>
             <ul style="margin-top: 20px;" v-if="isLogin" class="flex ul ">
-              <li class="userinfo" @click="pushPath('coinRecharge')">
+              <li class="userinfo" @click="pushPath('coinRechargeUdun')">
                 <img src="@img/bbai/in.png" alt="" width="50" height="50" />
                 <span>{{ $t("homeLang.lang84") }}</span>
               </li>

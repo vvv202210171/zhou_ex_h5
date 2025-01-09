@@ -1,8 +1,7 @@
 <template>
   <div>
     <nav-header :title="$t('tradeLang.zz')">
-      <span slot="headerRight" class="right_img"><img src="@img/home/icon_record.png" alt=""
-          @click="pushPath('transRecord')" /></span>
+      <span slot="headerRight" class="right_img" @click="toRecord"><img src="@img/home/icon_record.png" alt="" /></span>
     </nav-header>
     <div class="main_content">
       <div class="transfer_box">

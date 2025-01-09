@@ -17,6 +17,10 @@ export const trans = (data) => {
   showLoading();
   return post(`${baseURL}/account/trans`, data);
 };
+export const transRecord = () => {
+  return fetch(`${baseURL}/account/trans_record`);
+};
+
 export const selectRate = (data) => {
   return fetch(`${baseURL}/account/getExchangeRateByCoin`, data);
 };

@@ -49,7 +49,8 @@
         <li class="flex_between">
           <h3 class="flex_center">
             <van-image width="80px" height="80px" :src="`${baseImgUrl}/${item.logo}`" fit="cover" alt="Example Image"
-              style="margin-right: 6px" />{{ item.name || "--" }}（<em class="red_color">{{ item.poolAbility }}</em> ）
+              style="margin-right: 6px" />{{ item.name || "--" }}（<em class="red_color">{{
+                item.totalTime - item.remainingTime }}</em> ）
           </h3>
           <i class="iconfont icon-arrow-right main_color" />
         </li>
