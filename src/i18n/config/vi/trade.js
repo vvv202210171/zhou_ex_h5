@@ -284,5 +284,12 @@ export default{
   lang277: 'Lệnh đặt cọc',
   lang278: 'Vui lòng nhập lệnh gửi tiền',
   lang279: 'Lợi nhuận hôm nay',
-  lang280: 'Tổng lợi nhuận'
+  lang280: 'Tổng lợi nhuận',
+zz:"chuyển khoản"
+,
+dkzh:"Tài khoản nhận tiền"
+,
+jymm:"Mật khẩu giao dịch"
+,
+jyid:"Vui lòng nhập ID tài khoản thanh toán"
 }

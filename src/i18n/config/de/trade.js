@@ -324,4 +324,11 @@ export default {
   lang278: 'Bitte geben Sie einen Einzahlungsauftrag ein',
   lang279: 'Das heutige Ergebnis',
   lang280: 'Gesamteinnahmen',
+zz:"überweisen"
+,
+dkzh:"Empfangskonto"
+,
+jymm:"Transaktionspasswort"
+,
+jyid:"Bitte geben Sie die Zahlungskonto-ID ein"
 }

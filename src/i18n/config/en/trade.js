@@ -324,4 +324,11 @@ export default {
   lang278: 'Please enter a deposit order',
   lang279: "Today's profit",
   lang280: "Total profit",
+zz:"transfer"
+,
+dkzh:"Receipt Account"
+,
+jymm:"Transaction password"
+,
+jyid:"Please enter the payment account ID"
 }

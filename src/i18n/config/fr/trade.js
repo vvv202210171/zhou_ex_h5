@@ -323,5 +323,12 @@ export default {
   lang277: 'Ordre de dépôt',
   lang278: 'Veuillez entrer un ordre de dépôt',
   lang279: "Gains d'aujourd'hui",
-  lang280: 'Revenu total'
+  lang280: 'Revenu total',
+zz:"transfert"
+,
+dkzh:"Compte de réception"
+,
+jymm:"Mot de passe de transaction"
+,
+jyid:"Veuillez saisir l'ID du compte de paiement"
 }

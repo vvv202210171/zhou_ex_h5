@@ -285,4 +285,11 @@ export default {
   "lang278":"Por favor insira a ordem para cobrar a moeda",
   "lang279":"Ganhos de hoje",
   "lang280":"Total dos rendimentos",
+zz:"transferir"
+,
+dkzh:"Conta de recebimento"
+,
+jymm:"Senha de transação"
+,
+jyid:"Insira o ID da conta de pagamento"
 }

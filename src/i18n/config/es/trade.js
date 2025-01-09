@@ -324,4 +324,11 @@ export default {
   lang278: 'Por favor ingrese una orden de depósito',
   lang279: 'Ganancias de hoy',
   lang280: 'Los ingresos totales',
+zz:"transferir"
+,
+dkzh:"cuenta de recibo"
+,
+jymm:"Contraseña de transacción"
+,
+jyid:"Por favor ingrese el ID de la cuenta de pago"
 }

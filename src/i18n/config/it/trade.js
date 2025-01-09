@@ -324,4 +324,11 @@ export default {
   lang278: 'Si prega di inserire un ordine di deposito',
   lang279: 'Guadagni di oggi',
   lang280: 'Entrate totali',
+zz:"trasferire"
+,
+dkzh:"Conto ricevute"
+,
+jymm:"Password della transazione"
+,
+jyid:"Inserisci l'ID del conto di pagamento"
 }
