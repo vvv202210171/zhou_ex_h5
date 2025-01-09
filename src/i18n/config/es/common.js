@@ -63,49 +63,28 @@ export default {
   pass: "aprobar",
   reject: "rechazar",
   gmjl: "Historial de compras",
-zfbz:"Moneda de pago",
-bmd:"lista blanca"
-,
-gzs:"estudio"
-,
-sq:"Comunidad"
-,
-cj:"súper"
-,
-cs:"Creación"
-,
-zq:"ciclo"
-,
-jg:"precio"
-,
-sysl:"Cantidad restante"
-,
-zs:"total"
-,
-gm:"Comprar"
-,
-dhjl:"Registro de intercambio"
-,
-sl:"Potencia informática"
-,
-sending:"En revisión"
-,
-pass:"aprobar"
-,
-reject:"rechazar"
-,
-gmjl:"Historial de compras"
-,
-zfbz:"Moneda de pago"
-,
-zfsm:"Número de pagos"
-,
-h24:"24 horas",
-zz:"transferir"
-,
-dkzh:"cuenta de recibo"
-,
-jymm:"Contraseña de transacción"
-,
-jyid:"Por favor ingrese el ID de la cuenta de pago"
-}
+  zfbz: "Moneda de pago",
+  bmd: "lista blanca",
+  gzs: "estudio",
+  sq: "Comunidad",
+  cj: "súper",
+  cs: "Creación",
+  zq: "ciclo",
+  jg: "precio",
+  sysl: "Cantidad restante",
+  zs: "total",
+  gm: "Comprar",
+  dhjl: "Registro de intercambio",
+  sl: "Potencia informática",
+  sending: "En revisión",
+  pass: "aprobar",
+  reject: "rechazar",
+  gmjl: "Historial de compras",
+  zfbz: "Moneda de pago",
+  zfsm: "Número de pagos",
+  h24: "24 horas",
+  zz: "transferir",
+  dkzh: "cuenta de recibo",
+  jymm: "Contraseña de transacción",
+  jyid: "Por favor ingrese el ID de la cuenta de pago",
+};

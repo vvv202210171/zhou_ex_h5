@@ -62,4 +62,8 @@ export default {
   reject: "拒絕",
   gmjl: "購買記錄",
   zfbz: "支付主幣種",
+  "zfsm": "支付數目",
+  "h24": "24小時"
 };
+
+

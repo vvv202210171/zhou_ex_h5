@@ -324,8 +324,7 @@ export default {
   lang278: 'Bitte geben Sie einen Einzahlungsauftrag ein',
   lang279: 'Das heutige Ergebnis',
   lang280: 'Gesamteinnahmen',
-zz:"überweisen"
-,
+  zz:"überweisen",
 dkzh:"Empfangskonto"
 ,
 jymm:"Transaktionspasswort"

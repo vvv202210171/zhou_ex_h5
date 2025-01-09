@@ -63,49 +63,28 @@ export default {
   pass: "pass",
   reject: "reject",
   gmjl: "Purchase history",
-zfbz:"Payment Currency",
-bmd:"Whitelist"
-,
-gzs:"studio"
-,
-sq:"Community"
-,
-cj:"super"
-,
-cs:"Creation"
-,
-zq:"cycle"
-,
-jg:"price"
-,
-sysl:"Remaining quantity"
-,
-zs:"total"
-,
-gm:"Buy"
-,
-dhjl:"Exchange Record"
-,
-sl:"Hashrate"
-,
-sending:"Under review"
-,
-pass:"pass"
-,
-reject:"reject"
-,
-gmjl:"Purchase history"
-,
-zfbz:"Payment Currency"
-,
-zfsm:"Payment amount"
-,
-h24:"24 hours",
-zz:"transfer"
-,
-dkzh:"Receipt Account"
-,
-jymm:"Transaction password"
-,
-jyid:"Please enter the payment account ID"
-}
+  zfbz: "Payment Currency",
+  bmd: "Whitelist",
+  gzs: "studio",
+  sq: "Community",
+  cj: "super",
+  cs: "Creation",
+  zq: "cycle",
+  jg: "price",
+  sysl: "Remaining quantity",
+  zs: "total",
+  gm: "Buy",
+  dhjl: "Exchange Record",
+  sl: "Hashrate",
+  sending: "Under review",
+  pass: "pass",
+  reject: "reject",
+  gmjl: "Purchase history",
+  zfbz: "Payment Currency",
+  zfsm: "Payment amount",
+  h24: "24 hours",
+  zz: "transfer",
+  dkzh: "Receipt Account",
+  jymm: "Transaction password",
+  jyid: "Please enter the payment account ID",
+};
