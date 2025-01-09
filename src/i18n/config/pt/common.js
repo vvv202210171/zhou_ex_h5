@@ -63,5 +63,49 @@ export default {
   pass: "passar",
   reject: "rejeitar",
   gmjl: "Histórico de compras",
+zfbz:"Moeda de pagamento",
+bmd:"lista branca"
+,
+gzs:"estúdio"
+,
+sq:"Comunidade"
+,
+cj:"super"
+,
+cs:"Criação"
+,
+zq:"ciclo"
+,
+jg:"preço"
+,
+sysl:"Quantidade restante"
+,
+zs:"total"
+,
+gm:"Comprar"
+,
+dhjl:"Registro de troca"
+,
+sl:"Poder de computação"
+,
+sending:"Em revisão"
+,
+pass:"passar"
+,
+reject:"rejeitar"
+,
+gmjl:"Histórico de compras"
+,
 zfbz:"Moeda de pagamento"
+,
+zfsm:"Valor do pagamento"
+,
+h24:"24 horas",
+zz:"transferir"
+,
+dkzh:"Conta de recebimento"
+,
+jymm:"Senha de transação"
+,
+jyid:"Insira o ID da conta de pagamento"
 }

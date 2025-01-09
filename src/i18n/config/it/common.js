@@ -63,5 +63,49 @@ export default {
   pass: "passaggio",
   reject: "rifiutare",
   gmjl: "Cronologia acquisti",
+zfbz:"Valuta di pagamento",
+bmd:"lista bianca"
+,
+gzs:"studio"
+,
+sq:"Comunità"
+,
+cj:"super"
+,
+cs:"Creazione"
+,
+zq:"ciclo"
+,
+jg:"prezzo"
+,
+sysl:"Quantità rimanente"
+,
+zs:"totale"
+,
+gm:"Acquistare"
+,
+dhjl:"Registro di scambio"
+,
+sl:"Potenza di calcolo"
+,
+sending:"In fase di revisione"
+,
+pass:"passaggio"
+,
+reject:"rifiutare"
+,
+gmjl:"Cronologia acquisti"
+,
 zfbz:"Valuta di pagamento"
+,
+zfsm:"Numero di pagamenti"
+,
+h24:"24 ore",
+zz:"trasferire"
+,
+dkzh:"Conto ricevute"
+,
+jymm:"Password della transazione"
+,
+jyid:"Inserisci l'ID del conto di pagamento"
 }

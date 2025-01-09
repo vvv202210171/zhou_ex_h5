@@ -63,4 +63,48 @@ export default {
   reject: "từ chối",
   gmjl: "Lịch sử mua hàng",
   zfbz: "Đồng tiền thanh toán",
-};
+bmd:"danh sách trắng"
+,
+gzs:"phòng thu"
+,
+sq:"Cộng đồng"
+,
+cj:"siêu"
+,
+cs:"Sáng tạo"
+,
+zq:"xe đạp"
+,
+jg:"giá "
+,
+sysl:"Số lượng còn lại"
+,
+zs:"tổng cộng"
+,
+gm:"Mua"
+,
+dhjl:"Trao đổi hồ sơ"
+,
+sl:"Sức mạnh tính toán"
+,
+sending:"Đang xem xét"
+,
+pass:"vượt qua"
+,
+reject:"từ chối"
+,
+gmjl:"Lịch sử mua hàng"
+,
+zfbz:"Đồng tiền thanh toán"
+,
+zfsm:"Số lần thanh toán"
+,
+h24:"24 giờ",
+zz:"chuyển khoản"
+,
+dkzh:"Tài khoản nhận tiền"
+,
+jymm:"Mật khẩu giao dịch"
+,
+jyid:"Vui lòng nhập ID tài khoản thanh toán"
+}

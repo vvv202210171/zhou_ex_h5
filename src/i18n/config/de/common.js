@@ -63,5 +63,49 @@ export default {
   pass: "passieren",
   reject: "ablehnen",
   gmjl: "Kaufhistorie",
+zfbz:"Zahlungswährung",
+bmd:"Whitelist"
+,
+gzs:"Studio"
+,
+sq:"Gemeinschaft"
+,
+cj:"super"
+,
+cs:"Schaffung"
+,
+zq:"Zyklus"
+,
+jg:"Preis"
+,
+sysl:"Restmenge"
+,
+zs:"gesamt"
+,
+gm:"Kaufen"
+,
+dhjl:"Austauschdatensatz"
+,
+sl:"Rechenleistung"
+,
+sending:"Wird überprüft"
+,
+pass:"passieren"
+,
+reject:"ablehnen"
+,
+gmjl:"Kaufhistorie"
+,
 zfbz:"Zahlungswährung"
+,
+zfsm:"Zahlungsbetrag"
+,
+h24:"24 Stunden",
+zz:"überweisen"
+,
+dkzh:"Empfangskonto"
+,
+jymm:"Transaktionspasswort"
+,
+jyid:"Bitte geben Sie die Zahlungskonto-ID ein"
 }

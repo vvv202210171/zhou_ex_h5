@@ -75,5 +75,49 @@ pass:"passer"
 ,
 reject:"rejeter",
 gmjl:"Historique des achats",
+zfbz:"Devise de paiement",
+bmd:"liste blanche"
+,
+gzs:"studio"
+,
+sq:"Communauté"
+,
+cj:"super"
+,
+cs:"Création"
+,
+zq:"faire du vélo"
+,
+jg:"prix"
+,
+sysl:"Quantité restante"
+,
+zs:"total"
+,
+gm:"Acheter"
+,
+dhjl:"Dossier d'échange"
+,
+sl:"Puissance de calcul"
+,
+sending:"En cours de révision"
+,
+pass:"passer"
+,
+reject:"rejeter"
+,
+gmjl:"Historique des achats"
+,
 zfbz:"Devise de paiement"
+,
+zfsm:"Montant du paiement"
+,
+h24:"24 heures",
+zz:"transfert"
+,
+dkzh:"Compte de réception"
+,
+jymm:"Mot de passe de transaction"
+,
+jyid:"Veuillez saisir l'ID du compte de paiement"
 }
