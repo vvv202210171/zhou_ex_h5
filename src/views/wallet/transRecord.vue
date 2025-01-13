@@ -15,7 +15,8 @@
           </div>
           <div>
             <div class="log">
-              <h5 :class="item.title">{{ parseText(item.title) }}</h5>
+              <h5>{{ parseText(item.number) }}</h5>
+              <p :class="item.title">{{ parseText(item.title) }}</p>
             </div>
           </div>
         </van-cell>
