@@ -6,32 +6,30 @@
         <ol v-for="item in recordList" :key="item" class="record_box">
           <li class="flex_between">
             <h3>{{ item.name }}</h3>
-            <span v-if="item.state=='enable'" class="main_color">{{ $t('homeLang.lang69') }}</span>
-            <span v-if="item.state=='success'">{{ $t('homeLang.lang70') }}</span>
-            <span v-if="item.state=='close'" class="sub_font">{{ $t('homeLang.lang71') }}</span>
+            <span v-if="item.state == 'enable'" class="main_color">{{ $t('homeLang.lang69') }}</span>
+            <span v-if="item.state == 'success'">{{ $t('homeLang.lang70') }}</span>
+            <span v-if="item.state == 'close'" class="sub_font">{{ $t('homeLang.lang71') }}</span>
           </li>
           <li class="flex_between">
             <em>{{ $t('homeLang.lang60') }}</em>
-            <p>{{ item.payNumber||'0.00' }} {{ item.payCoin }}</p>
+            <p>{{ item.payNumber || '0.00' }} {{ item.payCoin }}</p>
           </li>
-          <li class="flex_between">
-            <em>{{ $t('homeLang.lang72') }}</em>
-            <p>{{ item.income||'0.00' }} {{ item.outCoin }}</p>
-          </li>
+
           <li class="flex_between">
             <em>{{ $t('homeLang.lang73') }}</em>
-            <p>{{ item.writedate |ts_local('yyyy-MM-dd')}}</p>
+            <p>{{ item.writedate | ts_local('yyyy-MM-dd') }}</p>
           </li>
           <li class="flex_between">
             <em>{{ $t('homeLang.lang74') }}</em>
-            <p>{{ item.enddate|ts_local('yyyy-MM-dd') }}</p>
+            <p>{{ item.enddate | ts_local('yyyy-MM-dd') }}</p>
           </li>
-          <li v-if="item.state=='enable'&&userInfo.minerState=='enable'">
-            <van-button type="primary" size="large" @click="showPayPopup(item)">{{ $t('commonLang.lang1') }}</van-button>
+          <li v-if="item.state == 'enable' && userInfo.minerState == 'enable'">
+            <van-button type="primary" size="large" @click="showPayPopup(item)">{{ $t('commonLang.lang1')
+              }}</van-button>
           </li>
         </ol>
       </van-list>
-      <div v-show="isload&&!recordList.length" class="no_data">
+      <div v-show="isload && !recordList.length" class="no_data">
         <i class="icon_no_data" />
         <span>{{ $t('commonLang.lang5') }}</span>
       </div>
@@ -104,7 +102,7 @@ export default {
         this.id = data.id
         this.payPass = ''
         this.payPopup = true
-      }).catch(() => {})
+      }).catch(() => { })
     },
 
     confirmPass() {
@@ -121,22 +119,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.record_box{
+.record_box {
   margin-bottom: 8px;
   padding: 0 15px 15px;
   background-color: $blockColor;
-  li{
+
+  li {
     line-height: 20px;
     margin-top: 12px;
-    &:first-child{
+
+    &:first-child {
       padding: 15px 0 12px;
       margin: 0;
       border-bottom: 1px solid $lineColor;
     }
-    em{
+
+    em {
       color: $subFontColor;
     }
-    button{
+
+    button {
       margin-top: 10px;
     }
   }

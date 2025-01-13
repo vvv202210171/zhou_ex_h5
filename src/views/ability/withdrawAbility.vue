@@ -79,6 +79,9 @@ export default {
     },
 
     async buyOrSell() {
+      if (!this.amountCurr || this.amountCurr <= 0) {
+        return;
+      }
       const ret = await bbaiWithdraw({ number: this.amountCurr });
       if (ret.code == 200) {
         this.pushPath("/withdrawRecord")

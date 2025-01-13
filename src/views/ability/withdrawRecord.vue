@@ -84,7 +84,8 @@ export default {
     loadMore() {
       withdrawLog().then((res) => {
         this.recordList = res.data
-        this.finished = true
+        this.finished = true;
+        this.isload = false;
       });
     },
 
