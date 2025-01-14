@@ -31,7 +31,7 @@ const state = {
   serviceLoaded: false,
   serviceUrl: "",
   baseImgUrl: process.env.VUE_APP_BASE_IMG,
-  getConfig: [],
+  getConfig: {},
 };
 
 const mutations = {

@@ -17,19 +17,19 @@
 
           <li class="flex_between">
             <em>{{ $t('homeLang.lang73') }}</em>
-            <p>{{ item.writedate }}</p>
+            <p>{{ item.writedate | ts_local("yyyy/MM/dd hh:mm:ss") }}</p>
           </li>
           <li class="flex_between">
             <em>{{ $t('homeLang.lang74') }}</em>
-            <p>{{ item.enddate }}</p>
+            <p>{{ item.enddate | ts_local("yyyy/MM/dd hh:mm:ss") }}</p>
           </li>
           <li class="flex_between" v-if="item.state == 'enable'">
             <em>{{ $t('tradeLang.lang270') }}</em>
-            <p class="red_color">{{ countdownMap[item.id] || '--:--:--' }}</p>
+            <p class="green_color">{{ countdownMap[item.id] || '--:--:--' }}</p>
           </li>
           <li class="flex_between" v-else>
             <em>到期</em>
-            <p class="green_color" @click="pushPath('lockMining')">请再次质押</p>
+            <p class="red_color">已到期</p>
           </li>
           <li v-if="item.state == 'enable' && userInfo.minerState == 'enable'">
             <van-button type="primary" size="large" @click="showPayPopup(item)">{{ $t('commonLang.lang1')
@@ -55,6 +55,7 @@ import { mapState } from 'vuex'
 import { Toast, Dialog } from 'vant'
 import { minOrder, redeemOrder } from '@api/miner'
 import passwordDialog from '@/components/passwordDialog.vue'
+
 export default {
   components: { passwordDialog },
   data() {
@@ -77,11 +78,13 @@ export default {
   },
   computed: {
     ...mapState({
-      userInfo: state => state.user.userInfo
+      userInfo: state => state.user.userInfo,
+      getConfig: state => state.common.getConfig,
     })
   },
   created() {
-    this.getRecord()
+    this.getRecord();
+    this.startCountdownTimer();
   },
   beforeDestroy() {
     this.clearCountdownTimer();
@@ -97,22 +100,20 @@ export default {
     startCountdownTimer() {
       // 避免重复启动
       if (this.countdownTimer) return;
-
       this.countdownTimer = setInterval(() => {
         this.recordList.forEach(item => {
           this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
         });
       }, 1000); // 每秒更新一次
     },
-
-    // 计算倒计时
+    //计算倒计时
     calculateCountdown(item) {
-      const endTime = new Date(item.enddate).getTime();
-      const currentTime = new Date().getTime();
-      const diff = endTime - currentTime;
-
+      if (item.state !== 'enable') {
+        return
+      }
+      item.countdown = item.countdown - 1000;
+      const diff = item.countdown;
       if (diff <= 0) return this.$t('commonLang.lang5'); // 已结束
-
       const hours = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
       const seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
@@ -134,40 +135,11 @@ export default {
         this.loading = false;
         if (res.data && res.data.length) {
           this.recordList = this.searchData.page == 1 ? res.data : [...this.recordList, ...res.data];
-          // 初始化倒计时
-          this.recordList.forEach(item => {
-            this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
-          });
-          this.startCountdownTimer();
         } else {
           this.recordList = [];
         }
         this.finished = res.count == this.recordList.length;
       });
-    },
-    startCountdownTimer() {
-      setInterval(() => {
-        this.recordList.forEach(item => {
-          this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
-        });
-      }, 1000); // 每秒更新一次
-    },
-    // 计算倒计时
-    calculateCountdown(item) {
-      const endTime = new Date(item.enddate).getTime(); // 获取结束时间戳
-      const startTime = new Date(item.writedate).getTime(); // 获取写入时间戳
-
-      // 获取基于 writedate 的剩余时间戳
-      const elapsedTime = new Date().getTime() - startTime; // 已经过的时间
-      const remainingTime = endTime - startTime - elapsedTime; // 剩余时间
-
-      if (remainingTime <= 0) return "质押结束"; // 如果时间已过，返回提示
-
-      const hours = Math.floor(remainingTime / (1000 * 60 * 60)).toString().padStart(2, '0');
-      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000).toString().padStart(2, '0');
-
-      return `${hours}:${minutes}:${seconds}`;
     },
     showPayPopup(data) {
       Dialog.confirm({

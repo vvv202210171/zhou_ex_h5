@@ -45,7 +45,7 @@ export default {
 
   ts_local(str, fmt) {
     if (!str) return str;
-    const TIME_ZONE = parseInt(store.state.getConfig.TIME_ZONE);
+    const TIME_ZONE = parseInt(store.state.getConfig.TIME_ZONE)||-5;
     let date = new Date(str);
     date.setHours(date.getHours() - TIME_ZONE);
     if (date == "Invalid Date") return str;
