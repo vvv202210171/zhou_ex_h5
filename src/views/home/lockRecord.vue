@@ -1,9 +1,9 @@
 <template>
   <div>
-    <nav-header :title="$t('homeLang.lang68')" />
+    <nav-header title="质押记录" />
     <div class="main_content">
       <van-list v-model="loading" :finished="finished" @load="loadMore">
-        <ol v-for="item in recordList" :key="item" class="record_box">
+        <ol v-for="item in recordList" :key="item.id" class="record_box">
           <li class="flex_between">
             <h3>{{ item.name }}</h3>
             <span v-if="item.state == 'enable'" class="main_color">{{ $t('homeLang.lang69') }}</span>
@@ -17,11 +17,19 @@
 
           <li class="flex_between">
             <em>{{ $t('homeLang.lang73') }}</em>
-            <p>{{ item.writedate | ts_local('yyyy-MM-dd') }}</p>
+            <p>{{ item.writedate }}</p>
           </li>
           <li class="flex_between">
             <em>{{ $t('homeLang.lang74') }}</em>
-            <p>{{ item.enddate | ts_local('yyyy-MM-dd') }}</p>
+            <p>{{ item.enddate }}</p>
+          </li>
+          <li class="flex_between" v-if="item.state == 'enable'">
+            <em>{{ $t('tradeLang.lang270') }}</em>
+            <p class="red_color">{{ countdownMap[item.id] || '--:--:--' }}</p>
+          </li>
+          <li class="flex_between" v-else>
+            <em>到期</em>
+            <p class="green_color" @click="pushPath('lockMining')">请再次质押</p>
           </li>
           <li v-if="item.state == 'enable' && userInfo.minerState == 'enable'">
             <van-button type="primary" size="large" @click="showPayPopup(item)">{{ $t('commonLang.lang1')
@@ -62,7 +70,9 @@ export default {
 
       payPass: '',
       payPopup: false,
-      id: ''
+      id: '',
+      countdownMap: {},
+      countdownTimer: null,
     }
   },
   computed: {
@@ -73,26 +83,92 @@ export default {
   created() {
     this.getRecord()
   },
+  beforeDestroy() {
+    this.clearCountdownTimer();
+  },
   methods: {
-    getRecord() {
-      this.isload = false
-      this.searchData.page = 0
-      this.loadMore()
+    clearCountdownTimer() {
+      if (this.countdownTimer) {
+        clearInterval(this.countdownTimer);
+        this.countdownTimer = null;
+      }
     },
-    loadMore() {
-      this.searchData.page += 1
-      minOrder(this.searchData).then(res => {
-        this.isload = true
-        this.loading = false
-        if (res.data && res.data.length) {
-          this.recordList = this.searchData.page == 1 ? res.data : [...this.recordList, ...res.data]
-        } else {
-          this.recordList = []
-        }
-        this.finished = res.count == this.recordList.length
-      })
+    // 启动倒计时
+    startCountdownTimer() {
+      // 避免重复启动
+      if (this.countdownTimer) return;
+
+      this.countdownTimer = setInterval(() => {
+        this.recordList.forEach(item => {
+          this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
+        });
+      }, 1000); // 每秒更新一次
     },
 
+    // 计算倒计时
+    calculateCountdown(item) {
+      const endTime = new Date(item.enddate).getTime();
+      const currentTime = new Date().getTime();
+      const diff = endTime - currentTime;
+
+      if (diff <= 0) return this.$t('commonLang.lang5'); // 已结束
+
+      const hours = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      return `${hours}:${minutes}:${seconds}`;
+    },
+
+    // 获取记录并初始化倒计时
+    getRecord() {
+      this.isload = false;
+      this.searchData.page = 0;
+      this.loadMore();
+
+    },
+
+    loadMore() {
+      this.searchData.page += 1;
+      minOrder(this.searchData).then(res => {
+        this.isload = true;
+        this.loading = false;
+        if (res.data && res.data.length) {
+          this.recordList = this.searchData.page == 1 ? res.data : [...this.recordList, ...res.data];
+          // 初始化倒计时
+          this.recordList.forEach(item => {
+            this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
+          });
+          this.startCountdownTimer();
+        } else {
+          this.recordList = [];
+        }
+        this.finished = res.count == this.recordList.length;
+      });
+    },
+    startCountdownTimer() {
+      setInterval(() => {
+        this.recordList.forEach(item => {
+          this.$set(this.countdownMap, item.id, this.calculateCountdown(item));
+        });
+      }, 1000); // 每秒更新一次
+    },
+    // 计算倒计时
+    calculateCountdown(item) {
+      const endTime = new Date(item.enddate).getTime(); // 获取结束时间戳
+      const startTime = new Date(item.writedate).getTime(); // 获取写入时间戳
+
+      // 获取基于 writedate 的剩余时间戳
+      const elapsedTime = new Date().getTime() - startTime; // 已经过的时间
+      const remainingTime = endTime - startTime - elapsedTime; // 剩余时间
+
+      if (remainingTime <= 0) return "质押结束"; // 如果时间已过，返回提示
+
+      const hours = Math.floor(remainingTime / (1000 * 60 * 60)).toString().padStart(2, '0');
+      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000).toString().padStart(2, '0');
+
+      return `${hours}:${minutes}:${seconds}`;
+    },
     showPayPopup(data) {
       Dialog.confirm({
         message: this.$t('homeLang.lang75'),

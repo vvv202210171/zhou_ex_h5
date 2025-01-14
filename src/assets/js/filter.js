@@ -8,7 +8,6 @@ export default {
    * @param {string} fmt 类似 yyyy-MM-dd hh:mm:ss
    */
   formatDate(time, fmt) {
-    debugger;
     if (!time) {
       return;
     }
