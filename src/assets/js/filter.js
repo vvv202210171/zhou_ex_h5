@@ -45,42 +45,35 @@ export default {
 
   ts_local(str, fmt) {
     if (!str) return str;
-    const TIME_ZONE = parseInt(store.state.getConfig.TIME_ZONE)||-5;
-    let date = new Date(str);
-    date.setHours(date.getHours() - TIME_ZONE);
-    if (date == "Invalid Date") return str;
-    date = new Date(date.setHours(date.getHours() - 8));
-    let timezone = -date.getTimezoneOffset() / 60;
-    date.setHours(date.getHours() + timezone);
-    const o = {
-      "M+": date.getMonth() + 1, //月份
-      "d+": date.getDate(), //日
-      "h+": date.getHours(), //小时
-      "m+": date.getMinutes(), //分
-      "s+": date.getSeconds(), //秒
-      "q+": Math.floor((date.getMonth() + 3) / 3), //季度
-      S: date.getMilliseconds(), //毫秒
+
+    const TIME_ZONE = parseInt(store.state.getConfig.TIME_ZONE) || -5; // 默认使用 UTC-5
+    const localTimeZoneOffset = -new Date().getTimezoneOffset() / 60; // 当前本地时区偏移量（单位：小时）
+    console.log("localTimeZoneOffset", localTimeZoneOffset, TIME_ZONE);
+
+    // 创建目标时区时间
+    const targetDate = new Date(str);
+    const targetTimestamp = targetDate.getTime(); // 转为时间戳（毫秒）
+
+    // 计算本地时间戳
+    const adjustedTimestamp =
+      targetTimestamp + (TIME_ZONE - localTimeZoneOffset) * 60 * 60 * 1000;
+    const adjustedDate = new Date(adjustedTimestamp);
+
+    // 格式化时间
+    const formatTime = (date, format) => {
+      const pad = (n) => (n < 10 ? "0" + n : n);
+      return format
+        .replace("yyyy", date.getFullYear())
+        .replace("MM", pad(date.getMonth() + 1))
+        .replace("dd", pad(date.getDate()))
+        .replace("HH", pad(date.getHours()))
+        .replace("hh", pad(date.getHours()))
+        .replace("mm", pad(date.getMinutes()))
+        .replace("ss", pad(date.getSeconds()));
     };
-    if (/(y+)/.test(fmt)) {
-      fmt = fmt.replace(
-        RegExp.$1,
-        (date.getFullYear() + "").substr(4 - RegExp.$1.length)
-      );
-    }
-    for (var k in o) {
-      if (new RegExp("(" + k + ")").test(fmt)) {
-        fmt = fmt.replace(
-          RegExp.$1,
-          RegExp.$1.length == 1
-            ? o[k]
-            : ("00" + o[k]).substr(("" + o[k]).length)
-        );
-      }
-    }
 
-    return fmt;
+    return formatTime(adjustedDate, fmt || "yyyy-MM-dd HH:mm:ss"); // 默认格式化
   },
-
   /**
    * 数字处理
    * @param {*} number 需要处理的数字
