@@ -302,6 +302,7 @@ export default {
         blockName: this.coinData.blockname,
         coin: this.coinData.coin,
         tradPassword: this.payPass,
+        appVersion: this.appVersion
       }).then((res) => {
         Toast(res.msg);
         this.number = "";
