@@ -11,9 +11,10 @@ if (window.plus) {
   const statusbarHeight = plus.navigator.getStatusbarHeight() || 0;
   Vue.prototype.$barHeight = parseInt(statusbarHeight);
 
-  initPlus();
+  setTimeout(initPlus, 500); // 延迟执行，确保 plus 组件可用
 } else {
   Vue.prototype.$barHeight = 0;
+  document.addEventListener("plusready", initPlus, false);
 }
 
 function initPlus() {
