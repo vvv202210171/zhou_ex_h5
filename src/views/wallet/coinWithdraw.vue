@@ -58,7 +58,7 @@
             <label class="flex_between">
               <span><em>{{ $t("tradeLang.lang42") }}</em> {{ coinInfo.usable }}
                 {{ coinData.coin || "--" }}</span>
-              <span><em>{{ $t("tradeLang.lang68") }} {{ coinData.outgas }}
+              <span><em>{{ $t("tradeLang.lang68") }} {{ coinData.outgas * number / 100 }}
                   {{ coinData.coin || "--" }}</em></span>
             </label>
           </li>
@@ -66,7 +66,7 @@
             <p>{{ $t("tradeLang.lang69") }}</p>
             <h2>
               {{
-                number > coinData.outgas ? number - coinData.outgas : "0.00"
+                number > coinData.outgas ? number - coinData.outgas * number / 100 : "0.00"
               }}
               {{ coinData.coin }}
             </h2>
