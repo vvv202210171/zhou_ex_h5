@@ -25,10 +25,10 @@
             <p>{{ $t('commonLang.lang38') }}</p>
           </li>
 
-          <li>
+          <!-- <li>
             <h4>{{ nodeInfo.shareAbility || "0" }}</h4>
             <p>{{ $t('commonLang.lang39') }}</p>
-          </li>
+          </li> -->
           <li>
             <h4>
               {{ nodeInfo.freeAbility || "0" }}
